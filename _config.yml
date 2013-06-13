@@ -1,0 +1,17 @@
+name: Parker has a website.
+description: Words and pictures by Parker Malenke.
+
+url: "http://localhost:4000"
+
+paginate: 2
+paginate_path: 'page:num'
+
+markdown: rdiscount
+permalink: /:categories/:year/:title/
+pygments: true
+
+flickr:
+  enabled: yes
+  cache_dir: ./_cache/flickr
+  api_key: 301430a860f86a2736f7e4cc33abaa89
+  shared_secret: 4c0f2392bcf9a9b7

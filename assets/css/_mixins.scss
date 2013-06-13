@@ -1,0 +1,8 @@
+@mixin background-size-cover {
+	-webkit-background-size: cover;
+ 	   -moz-background-size: cover;
+	     -o-background-size: cover;
+	        background-size: cover;
+	        -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='path_relative_to_the_HTML_file', sizingMethod='scale')";
+
+}

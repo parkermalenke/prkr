@@ -1,0 +1,54 @@
+{% include header.html %}
+{% include navigation.html %}
+
+<article class="photo-article">
+	<h1><a href="{{ page.url }}">{{ page.title }}</a></h1>
+	{% for image in page.photos %}
+		<div id="{{ image.title | url_friendly }}" data-picture data-alt="{{ image.alt }}" data-title="{{ image.title }}" data-href="http://flickr.com/photos/parker_malenke/{{ image.id }}">
+	    	<!-- Basic mobile devices -->
+	    	<div data-src="{{ image.url_m }}"></div>
+	    	<div data-src="{{ image.url_c }}"
+	    		 data-media="(-webkit-min-device-pixel-ratio: 2),
+	    		 			 (min-resolution: 192dpi)">
+	    	</div>
+
+	    	<!-- 570-960px devices -->
+	    	<div data-src="{{ image.url_c }}"
+	    		 data-media="(min-width: 570px)">
+	    	</div>
+	        <div data-src="{{ image.url_b }}"
+	        	 data-media="(min-width: 570px) and
+	        	 			 (-webkit-min-device-pixel-ratio: 2),
+	    					 (min-resolution: 192dpi)">
+	    	</div>
+
+	    	<!-- 960-1280px devices -->
+	    	<div data-src="{{ image.url_b }}"
+	    		 data-media="(min-width: 960px)">
+	    	</div>
+	        <div data-src="{{ image.url_h }}"
+	        	 data-media="(min-width: 960px) and
+	        	 			 (-webkit-min-device-pixel-ratio: 2),
+	    					 (min-resolution: 192dpi)">
+	    	</div>
+
+	    	<!-- > 1280px devices -->
+	    	<div data-src="{{ image.url_h }}"
+	    		 data-media="(min-width: 1280px)">
+	    	</div>
+	        <div data-src="{{ image.url_k }}"
+	        	 data-media="(min-width: 1280px) and
+	        	 			 (-webkit-min-device-pixel-ratio: 2),
+	    					 (min-resolution: 192dpi)">
+	    	</div>
+
+	        <!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+	        <noscript>
+	            <img src="assets/photos/{{ image.name }}.{{ image.ext }}" alt="{{ image.alt }}">
+	        </noscript>
+   		</div>
+		{% endfor %}
+	</footer>
+</article>
+
+{% include footer.html %}

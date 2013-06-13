@@ -1,0 +1,660 @@
+/*
+ * CSS styles for prkr.me by Parker Malenke
+ * Last updated 04.16.13
+ * For license info, see www.prkr.me/license
+ */
+
+
+
+
+
+/*******************************************************************************
+ TABLE OF CONTENTS
+ ******************************************************************************/
+
+/*
+1. General info
+2. Shared (across every page)
+3. Specific pages
+	a. index.html
+
+*/
+
+
+
+
+
+/*******************************************************************************
+ $General
+ ******************************************************************************/
+
+/* COLORS */
+$dark-gray: #323232;
+$white-gray: #d5d5d5;
+$header-fonts: Helvetica, Arial, sans-serif;
+$body-fonts: Georgia, serif;
+
+@import "mixins.scss";
+
+
+
+
+
+/*******************************************************************************
+ $Shared
+ ******************************************************************************/
+
+h1 {
+	font-family: $header-fonts;
+	font-size: 36px;
+	color: $dark-gray;
+	margin: 0;
+	padding: 0;
+
+	& a:link, & a:visited, & a:active, & a:hover {
+		color: $dark-gray;
+		border-bottom: none;
+		padding: 0;
+		margin: 0;
+		background: none;
+	}
+
+	@media (min-width: 500px) {
+		font-size: 55px;
+	}
+}
+
+p {
+	font-family: $body-fonts;
+	font-size: 15px;
+	line-height: 1.4;
+	word-wrap: break-word;
+
+	@media (min-width: 500px) {
+		font-size: 16px;
+		line-height: 1.5;
+	}
+}
+
+a:link, a:visited, a:active {
+	color: $dark-gray;
+	text-decoration: none;
+	border-bottom: 2px solid $dark-gray;
+}
+
+a:hover {
+	border-bottom: none;
+	border-radius: 2px;
+	background-color: $dark-gray;
+	color: $white-gray;
+	padding: 2px 4px;
+	margin: -2px -4px;
+}
+
+ul, ol {
+	font-family: $body-fonts;
+	font-size: 15px;
+	line-height: 1.4;
+	word-wrap: break-word;
+
+	@media (min-width: 500px) {
+		font-size: 16px;
+		line-height: 1.5;
+	}
+}
+
+blockquote {
+	margin-left: 2em;
+	padding-left: 1em;
+	border-left: 4px $dark-gray solid;
+}
+
+.page-footer {
+	background: $dark-gray;
+	color: $white-gray;
+	text-align: center;
+	font-family: Verdana, sans-serif;
+	font-size: 11px;
+
+	margin: 0;
+	padding: 10px;
+
+	a:link, a:visited {
+		color: $white-gray;
+		text-decoration: underline;
+	}
+
+	a:hover {
+		text-decoration: none;
+	}
+
+	@media (min-height: 400px) and (min-width: 675px) {
+		width: 650px;
+		padding: 10px 0;
+		margin: 0 auto 20px;
+	}
+}
+
+code {
+	font-family: menlo, monaco, "lucida console", monospace, serif;
+	font-size: 13px;
+}
+
+.pagination a:link, .pagination a:visited, .pagination a:active {
+	padding: 4px 8px;
+	color: $white-gray;
+	background: $dark-gray;
+	border: none;
+
+	&:hover {
+		margin: 0;
+		color: $dark-gray;
+		background: $white-gray;
+	}
+}
+
+.disabled-pagination {
+	padding: 4px 8px;
+	color: $white-gray;
+}
+
+.pagination {
+	display: table;
+	margin: 0 auto 100px;
+}
+
+.text-paginator {
+	margin: 0 10px;
+
+	@media (min-width: 450px) {
+		margin: 0 50px;
+	}
+}
+
+
+
+
+
+/*******************************************************************************
+ $Specific pages
+ ******************************************************************************/
+
+// $navigation.html
+
+.page-title {
+	text-align: left;
+	margin: -5px 15px 0;
+
+	font-size: 50px;
+	line-height: 0.9;
+	text-transform: uppercase;
+
+	@media (min-width: 350px) {
+		font-size: 60px;
+	}
+
+	@media (min-width: 450px) {
+		font-size: 70px;
+	}
+
+	@media (min-width: 690px) {
+		text-align: center;
+		font-size: 70px;
+	}
+
+	@media (min-width: 760px) {
+		text-align: center;
+		font-size: 80px;
+		margin: -7px 0 0 0;
+	}
+
+	@media (min-width: 940px) {
+		text-align: center;
+		font-size: 100px;
+		margin: -8px 0 0 0;
+	}
+}
+
+header {
+	background-image: url(/assets/img/bg-1.jpg);
+	background-size: 100% auto;
+
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+nav {
+	margin: 15px;
+
+	@media (min-width: 675px) {
+		width: 650px;
+		margin: 20px auto 0;
+	}
+}
+
+.nav-ul {
+	font-family: $header-fonts;
+	font-size: 14px;
+	line-height: 1;
+
+	@media (min-width: 450px) {
+		font-size: 20px;
+	}
+
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+
+
+	li {
+		float: left;
+		padding: 4px 7px;
+		margin-right: 10px;
+
+		color: $white-gray;
+		background: $dark-gray;
+
+		@media (min-width: 400px) {
+			padding: 5px 10px;
+			margin-right: 15px;
+		}
+
+		&:hover {
+			background: $white-gray;
+
+			a {
+				color: $dark-gray;
+			}
+		}
+	}
+
+	a:link, a:visited, a:active {
+		color: $white-gray;
+		text-decoration: none;
+		border: none;
+		background: none;
+	}
+
+	a:hover {
+		color: $dark-gray;
+	}
+}
+
+// $index.html
+
+.home-html {
+	background: url(/assets/img/bg-1.jpg) no-repeat center center fixed;
+	@include background-size-cover;
+}
+
+.home-title {
+	text-align: left;
+	margin: -6px 15px 0;
+
+	font-size: 50px;
+	line-height: 0.9;
+	text-transform: uppercase;
+
+	@media (min-width: 350px) {
+		font-size: 60px;
+	}
+
+	@media (min-width: 450px) {
+		margin-left: 13%;
+		font-size: 70px;
+	}
+
+	@media (min-width: 690px) {
+		margin-left: 0;
+		text-align: center;
+		font-size: 70px;
+	}
+
+	@media (min-width: 760px) {
+		text-align: center;
+		font-size: 80px;
+		margin: -7px 0 0 0;
+	}
+
+	@media (min-width: 940px) {
+		text-align: center;
+		font-size: 100px;
+		margin: -8px 0 0 0;
+	}
+}
+
+.home-ul {
+	padding: 0;
+	margin: 100px 15px 0;
+	line-height: 1.2;
+
+	list-style-type: none;
+
+	@media (min-width: 450px) {
+		position: fixed;
+		left: 13%;
+		bottom: 75px;
+	}
+
+	@media (max-height: 400px) and (min-width: 450px) {
+		position: static;
+		margin: 100px 0 0 13%;
+	}
+
+
+	li {
+		display: table;
+		margin: 20px 0;
+
+		background: $dark-gray;
+		padding: 3px 15px;
+
+		color: $white-gray;
+		font-family: $header-fonts;
+		font-size: 40px;
+
+		@media (min-width: 600px) {
+			font-size: 70px;
+		}
+
+
+		a:link, a:visited {
+			color: $white-gray;
+			text-decoration: none;
+		}
+	}
+
+	.small {
+		font-size: 14px;
+		padding: 10px 15px;
+
+		@media (min-width: 470px) {
+			font-size: 20px;
+		}
+
+
+		a:link, a:visited {
+			border-bottom: 2px solid $white-gray;
+		}
+
+		a:hover {
+			border-bottom: none;
+		}
+	}
+}
+
+.home-footer {
+	margin-top: 40px;
+
+	@media (min-height: 400px) and (min-width: 450px) {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		padding: 10px 0;
+		margin: 0 auto;
+	}
+
+}
+
+
+
+
+
+// words.html
+
+article {
+	margin: 0 15px 100px;
+
+	@media (min-width: 675px) {
+		width: 650px;
+		margin: 0 auto 100px;
+	}
+
+	pre {
+		background: $white-gray;
+		padding: 10px;
+		overflow-x: scroll;
+		white-space: pre;
+	}
+
+	img {
+		width: 100%;
+		margin: 0.5em 0;
+	}
+
+	footer {
+		margin-top: 25px;
+		overflow: hidden;
+
+		@media (min-width: 400px) {
+			overflow: visible;
+		}
+
+		time, a:link, a:visited, a:hover, a:active {
+			padding: 5px 10px;
+			margin: 0 0 10px 0;
+
+			border-radius: 0;
+			border: none;
+			background: $dark-gray;
+
+			float: left;
+			clear: both;
+
+			color: $white-gray;
+			font-family: $header-fonts;
+			font-size: 15px;
+			line-height: 1;
+			text-decoration: none;
+
+			@media (min-width: 400px) {
+				margin: 0 15px 0 0;
+
+				float: none;
+				clear: none;
+			}
+		}
+
+		a:hover {
+			background: $white-gray;
+			color: $dark-gray;
+		}
+	}
+}
+
+.post-link:link, .post-link:visited, .post-link:active {
+	border-bottom: 2px $dark-gray solid;
+	-webkit-transition: padding-left ease 0.6s;
+
+	&:hover {
+		border: none;
+		border-radius: 0;
+		padding: 4px 8px;
+	}
+}
+
+.edit-form {
+	display: none;
+}
+
+
+
+
+
+// pictures.html
+
+.photo-article {
+	width: 95%;
+	margin: 0 auto 100px auto;
+	background: #b5b5b5;
+
+	h1 {
+		margin: 0 2.5%;
+		// position: relative;
+
+		@media (min-width: 675px) {
+			width: 650px;
+			margin: 0 auto 0 auto;
+			padding-top: 40px;
+		}
+	}
+
+	footer {
+		@media (min-width: 675px) {
+			width: 650px;
+			margin: 10px auto 0;
+		}
+	}
+
+	[data-picture] {
+		padding: 50px 0;
+		overflow: scroll;
+
+		img {
+			margin: 0 auto;
+			display: block;
+
+			$height: 200px;
+			@while $height <= 1600 {
+				@media (min-height: $height) {
+					@if $height < 570px { max-height: $height - 10; }
+					@else { max-height: $height - 50; }
+					width: auto;
+				}
+				$height: $height + 50;
+			}
+
+			$width: 200px;
+			@while $width <= 2600 {
+				@media (min-width: $width) {
+					@if $width < 570px { max-width: $width - 25; }
+					@else { max-width: $width - 75; }
+				}
+				$width: $width + 50;
+			}
+		}
+	}
+}
+
+
+
+
+
+// archives.html
+
+#words-archive {
+	margin: 0 15px;
+
+	@for $i from 2 through 4 {
+		@media (min-width: 220px * $i) {
+			width: 220px * $i;
+			margin: 0 auto;
+		}
+	}
+
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+
+	a {
+		border-bottom: none;
+		padding: 0;
+		margin: 0;
+		border-radius: 0;
+		background: none;
+
+		&:hover {
+			color: $dark-gray;
+			border-bottom: 2px solid $dark-gray;
+		}
+	}
+}
+
+.words-year {
+
+	@media (min-width: 440px) {
+		width: 200px;
+		float: left;
+		margin-right: 20px;
+	}
+
+	@media (min-width: 440px) and (max-width: 659px) {
+		&:nth-child(4n+4) {
+			clear: left;
+		}
+	}
+
+	@media (min-width: 660px) and (max-width: 879px) {
+		&:nth-child(5n+5) {
+			clear: left;
+		}
+	}
+
+	@media (min-width: 880px) {
+		&:nth-child(6n+6) {
+			clear: left;
+		}
+	}
+
+	h3 {
+		margin: 20px 0 5px;
+	}
+
+	ul {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	li {
+		padding: 0 0 5px 0;
+	}
+}
+
+#pictures-archive {
+	clear: both;
+	margin: 50px 15px;
+
+	@for $i from 2 through 4 {
+		@media (min-width: 220px * $i) {
+			width: 220px * $i;
+			margin: 50px auto;
+		}
+	}
+
+
+	img {
+		height: 80px;
+		margin: 0 10px 10px 0;
+
+		@media (min-width: 440px) {
+			height: 120px;
+		}
+	}
+
+	a {
+		border-bottom: none;
+		padding: 0;
+		margin: 0;
+		border-radius: 0;
+		background: none;
+	}
+}
+
+
+
+
+
+// about.html
+
+#about {
+	margin: 0 15px 100px;
+
+	@media (min-width: 675px) {
+		width: 650px;
+		margin: 0 auto 100px;
+	}
+}

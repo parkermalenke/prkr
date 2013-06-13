@@ -1,0 +1,47 @@
+---
+title: Archives
+layout: default
+---
+
+<section id="words-archive">
+<h1>Words</h1>
+{% for post in site.posts %}
+	{% if post.category == 'words' %}
+		{% if forloop.first %}
+			<div class="words-year">
+				<h3>{{ post.date | date: '%Y' }}</h3>
+				<ul>
+					<li><a href="{{ post.url }}">{{ post.title }}{{ post.date | date: '%Y' }}</a></li>
+		{% else %}
+			{% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+			{% if cyear == year %}
+					<li><a href="{{ post.url }}">{{ post.title }}{{ post.date | date: '%Y' }}</a></li>
+			{% else %}
+				</ul>
+			</div>
+			<div class="words-year">
+				<h3>{{ post.date | date: '%Y'}}</h3>
+				<ul>
+					<li><a href="{{ post.url }}">{{ post.title }}{{ post.date | date: '%Y' }}</a></li>
+			{% endif %}
+		{% endif %}
+		{% capture cyear %}{{ post.date | date: '%Y' }}{% endcapture %}
+	{% endif %}
+
+	{% if forloop.last %}
+				</ul>
+			</div>
+	{% endif %}
+{% endfor %}
+</section>
+
+<section id="pictures-archive">
+<h1>Pictures</h1>
+{% for post in site.posts %}
+	{% if post.category == 'pictures' %}
+		{% for image in post.photos %}
+			<a href="{{ post.url }}#{{ image.title | url_friendly }}"><img src="{{ image.url_m }}" /></a>
+		{% endfor %}
+	{% endif %}
+{% endfor %}
+</section>

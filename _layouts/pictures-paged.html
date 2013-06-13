@@ -1,0 +1,84 @@
+{% include header.html %}
+{% include navigation.html %}
+
+{% for post in paginator.posts %}
+	<article class="photo-article">
+
+		<h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+		{% for image in post.photos %}
+		<div id="{{ image.title | url_friendly }}" data-picture data-alt="{{ image.alt }}" data-title="{{ image.title }}" data-href="http://flickr.com/photos/parker_malenke/{{ image.id }}">
+	    	<!-- Basic mobile devices -->
+	    	<div data-src="{{ image.url }}"></div>
+	    	<div data-src="{{ image.url_c }}"
+	    		 data-media="(-webkit-min-device-pixel-ratio: 2),
+	    		 			 (min-resolution: 192dpi)">
+	    	</div>
+
+	    	<!-- 570-960px devices -->
+	    	<div data-src="{{ image.url_c }}"
+	    		 data-media="(min-width: 570px)">
+	    	</div>
+	        <div data-src="{{ image.url_b }}"
+	        	 data-media="(min-width: 570px) and
+	        	 			 (-webkit-min-device-pixel-ratio: 2),
+	    					 (min-resolution: 192dpi)">
+	    	</div>
+
+	    	<!-- 960-1280px devices -->
+	    	<div data-src="{{ image.url_b }}"
+	    		 data-media="(min-width: 960px)">
+	    	</div>
+	        <div data-src="{{ image.url_h }}"
+	        	 data-media="(min-width: 960px) and
+	        	 			 (-webkit-min-device-pixel-ratio: 2),
+	    					 (min-resolution: 192dpi)">
+	    	</div>
+
+	    	<!-- > 1280px devices -->
+	    	<div data-src="{{ image.url_h }}"
+	    		 data-media="(min-width: 1280px)">
+	    	</div>
+	        <div data-src="{{ image.url_k }}"
+	        	 data-media="(min-width: 1280px) and
+	        	 			 (-webkit-min-device-pixel-ratio: 2),
+	    					 (min-resolution: 192dpi)">
+	    	</div>
+
+	        <!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+	        <noscript>
+	            <img src="assets/photos/{{ image.name }}.{{ image.ext }}" alt="{{ image.alt }}">
+	        </noscript>
+   		</div>
+		{% endfor %}
+
+
+<!-- 		<footer>
+			<time datetime="{{ post.date | date: '%Y-%m-d' }}" pubdate>{{ post.date | date: '%B %d, %Y'}}</time>
+			<a href="{{ post.url }}">Permalink</a>
+		</footer> -->
+	</article>
+{% endfor %}
+
+<section class="pagination">
+
+{% if paginator.previous_page %}
+	{% if paginator.previous_page == 1 %}
+		<a class="previous-pagination" href="/pictures" title="Previous">&larr; Previous</a>
+	{% else %}
+		<a class="previous-pagination" href="/pictures/page{{ paginator.previous_page }}">&larr; Previous</a>
+	{% endif %}
+{% else %}
+		<span class="previous-pagination disabled-pagination">&larr; Previous</span>
+{% endif %}
+
+<span class="text-paginator">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+
+{% if paginator.next_page %}
+	<a class="next-pagination" href="/pictures/page{{ paginator.next_page }}">Next &rarr;</a>
+{% else %}
+	<span class="next-pagination disabled-pagination">Next &rarr;</span>
+{% endif %}
+
+</section>
+
+{% include footer.html %}

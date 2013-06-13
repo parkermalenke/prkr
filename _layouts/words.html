@@ -1,0 +1,18 @@
+{% include header.html %}
+{% include navigation.html %}
+
+<article>
+	<h1><a href="{{ page.url }}">{{ page.title }}</a></h1>
+	{% if page.link %}
+	<a class="post-link" href="{{ page.link }}">{{ page.link | base_domain }} &rarr;</a>
+	{% endif %}
+
+	{{ content }}
+	<footer>
+		<time datetime="{{ page.date | date: '%Y-%m-d' }}" pubdate>{{ page.date | date: '%B %d, %Y'}}</time>
+		<a href="{{ page.url }}">Permalink</a>
+		<!-- <a href="">Suggest Edit</a> -->
+	</footer>
+</article>
+
+{% include footer.html %}

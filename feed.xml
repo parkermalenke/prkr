@@ -1,0 +1,31 @@
+---
+layout: nil
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Parker Malenke → Feed</title>
+		<description></description>
+		<link>http://prkr.me</link>
+		<atom:link href="http://prkr.me/feed.xml" rel="self" type="application/rss+xml" />
+
+		{% for post in site.posts limit:10 %}
+		<item>
+			<title>{{ post.title }}{% if post.link %} &rarr;{% endif %}</title>
+			<description>
+				{% if post.category == 'pictures' %}
+				{% for image in post.photos %}
+				&lt;img src="{{ image.url_b }}" title="{{ image.title }}" /&gt;
+				{% endfor %}
+				{% else %}
+				{{ post.content | xml_escape }}
+				{% endif %}
+			</description>
+			<link>{% if post.link %}{{ post.link }}{% else %}{{ site.url }}{{ post.url }}{% endif %}</link>
+			<guid>{{ site.url }}{{ post.url }}</guid>
+			<pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+		</item>
+		{% endfor %}
+
+	</channel>
+</rss>

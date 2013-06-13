@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+      <!-- As recommended by the spec -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <!--
+      This tells IE to use it's latest rendering engine, or
+      to use Chrome frame if it's installed. Not valid. See
+      HTML5boilderplate documentation
+      -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <title>Parker Malenke &rarr; Words</title>
+    
+
+    
+    <meta name="description" content="Words and pictures by Parker Malenke.">
+    
+
+    <link rel="stylesheet" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/pygments.css" />
+
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/matchmedia.js"></script>
+    <script type="text/javascript" src="/assets/js/picturefill.js"></script>
+    <script type="text/javascript" src="/assets/js/main.js"></script>
+    <!-- <script type="text/javascript" src="/assets/js/scroll.js"></script> -->
+    <!-- <script type="text/javascript" src="http://fast.fonts.com/jsapi/30e20c27-32fe-47a8-b298-98f60ebf788d.js"></script> -->
+    <!-- Script for adding fonts.com webfonts -->
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/assets/js/html5shiv-printshiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+<header>
+
+	<h1 class="page-title"><a href="/">Parker Malenke</a></h1>
+	<nav>
+		<ul class="nav-ul">
+			<li><a href="/words">Words</a></li>
+			<li><a href="/pictures">Pictures</a></li>
+			<li><a href="/about">About</a></li>
+			<li><a href="/archives">Archives</a></li>
+		</ul>
+	</nav>
+
+</header>
+
+
+	<article>
+		<h1><a href="/words/2013/another-test-post-for-rss/">Rss test post</a></h1>
+		
+
+		<p>What does the rss reader think of this?</p>
+
+		<footer>
+			<time datetime="2013-06-d" pubdate>June 10, 2013</time>
+			<a href="/words/2013/another-test-post-for-rss/">Permalink</a>
+			<!-- <a href="#" class="suggest-edit">Suggest Edit</a> -->
+		</footer>
+	</article>
+
+	<article>
+		<h1><a href="/words/2013/test-post-1/">First test post</a></h1>
+		
+
+		<p>Hello test post, how are you doing? This is some test text. The bluth's were here. And they were there. They were everywhere. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a look over there dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+
+<p>The bluth's were here. And they were there. They were everywhere. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a look over there dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+
+<div data-picture data-alt="" data-title="">
+    <div data-src="http://localhost:4000/assets/photos/blue-small.jpg"></div>
+    <div data-src="http://localhost:4000/assets/photos/blue-medium.jpg" data-media="(min-width: 400px)"></div>
+    <div data-src="http://localhost:4000/assets/photos/blue-large.jpg"  data-media="(min-width: 800px)"></div>
+
+    <!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+    <noscript>
+        <img src="http://localhost:4000/assets/photos/." alt="">
+    </noscript>
+</div>
+
+
+
+
+<div data-picture data-alt="" data-title="">
+    <div data-src="/assets/photos/sky-small.jpg"></div>
+    <div data-src="/assets/photos/sky-medium.jpg"   data-media="(min-width: 400px)"></div>
+    <div data-src="/assets/photos/sky-large.jpg"    data-media="(min-width: 800px)"></div>
+
+    <!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+    <noscript>
+        <img src="assets/photos/." alt="">
+    </noscript>
+</div>
+
+
+<p>tricky dick</p>
+
+<div class="highlight"><pre><code class="html">    <span class="nt">&lt;ul&gt;</span>
+    {% for img in page.photos %}
+        <span class="nt">&lt;li&gt;&lt;imb</span> <span class="na">src=</span><span class="s">&quot;thumb-{{ img.file }}&quot;</span> <span class="na">alt=</span><span class="s">&quot;{{ img.alt }}&quot;</span><span class="nt">/&gt;&lt;/li&gt;</span> and here it just keeps going on and on and on.
+    {% endfor %}
+    <span class="nt">&lt;/ul&gt;</span>
+</code></pre></div>
+
+
+<p>First test post</p>
+
+<blockquote><p>Here's a block quote from some old fool on some old website that I'm making fun of. Or maybe from some smart dude who I think other people should listen to.</p></blockquote>
+
+<p>The bluth's were here. And they were there. They were everywhere. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a look over there dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+
+		<footer>
+			<time datetime="2013-04-d" pubdate>April 17, 2013</time>
+			<a href="/words/2013/test-post-1/">Permalink</a>
+			<!-- <a href="#" class="suggest-edit">Suggest Edit</a> -->
+		</footer>
+	</article>
+
+
+<section class="pagination">
+
+
+		<span class="previous-pagination disabled-pagination">&larr; Previous</span>
+
+
+<span class="text-paginator">Page 1 of 3</span>
+
+
+	<a class="next-pagination" href="/words/page2">Next &rarr;</a>
+
+
+</section>
+
+    <p class="page-footer">
+    	An intermittent endeavor. <a href="/about/#contact">Say hi</a>. Subscribe? <a href="/feed.xml">Feed</a>. CC licensed, <a href="/about/#license">click here for info</a>.
+    </p>
+  </body>
+</html>

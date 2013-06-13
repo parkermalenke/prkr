@@ -1,0 +1,42 @@
+{% include header.html %}
+{% include navigation.html %}
+
+{% for post in paginator.posts %}
+	<article>
+		<h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+		{% if post.link %}
+		<a class="post-link" href="{{ post.link }}">{{ post.link | base_domain }} &rarr;</a>
+		{% endif %}
+
+		{{ post.content }}
+		<footer>
+			<time datetime="{{ post.date | date: '%Y-%m-d' }}" pubdate>{{ post.date | date: '%B %d, %Y'}}</time>
+			<a href="{{ post.url }}">Permalink</a>
+			<!-- <a href="#" class="suggest-edit">Suggest Edit</a> -->
+		</footer>
+	</article>
+{% endfor %}
+
+<section class="pagination">
+
+{% if paginator.previous_page %}
+	{% if paginator.previous_page == 1 %}
+		<a class="previous-pagination" href="/words" title="Previous">&larr; Previous</a>
+	{% else %}
+		<a class="previous-pagination" href="/words/page{{ paginator.previous_page }}">&larr; Previous</a>
+	{% endif %}
+{% else %}
+		<span class="previous-pagination disabled-pagination">&larr; Previous</span>
+{% endif %}
+
+<span class="text-paginator">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+
+{% if paginator.next_page %}
+	<a class="next-pagination" href="/words/page{{ paginator.next_page }}">Next &rarr;</a>
+{% else %}
+	<span class="next-pagination disabled-pagination">Next &rarr;</span>
+{% endif %}
+
+</section>
+
+{% include footer.html %}
