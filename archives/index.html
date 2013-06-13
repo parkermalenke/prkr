@@ -11,18 +11,18 @@ layout: default
 			<div class="words-year">
 				<h3>{{ post.date | date: '%Y' }}</h3>
 				<ul>
-					<li><a href="{{ post.url }}">{{ post.title }}{{ post.date | date: '%Y' }}</a></li>
+					<li><a href="{{ post.url }}">{{ post.title }}</a></li>
 		{% else %}
 			{% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
 			{% if cyear == year %}
-					<li><a href="{{ post.url }}">{{ post.title }}{{ post.date | date: '%Y' }}</a></li>
+					<li><a href="{{ post.url }}">{{ post.title }}</a></li>
 			{% else %}
 				</ul>
 			</div>
 			<div class="words-year">
 				<h3>{{ post.date | date: '%Y'}}</h3>
 				<ul>
-					<li><a href="{{ post.url }}">{{ post.title }}{{ post.date | date: '%Y' }}</a></li>
+					<li><a href="{{ post.url }}">{{ post.title }}</a></li>
 			{% endif %}
 		{% endif %}
 		{% capture cyear %}{{ post.date | date: '%Y' }}{% endcapture %}

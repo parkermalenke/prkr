@@ -1,0 +1,41 @@
+--- 
+- !ruby/object:Jekyll::FlickrPhoto 
+  id: "9033488839"
+  title: Near the cliffs of Moher
+  url: http://farm3.staticflickr.com/2805/9033488839_e1e1a57dd0.jpg
+  url_b: http://farm3.staticflickr.com/2805/9033488839_e1e1a57dd0_b.jpg
+  url_c: http://farm3.staticflickr.com/2805/9033488839_e1e1a57dd0_c.jpg
+  url_h: http://farm3.staticflickr.com/2805/9033488839_470fdbf251_h.jpg
+  url_k: http://farm3.staticflickr.com/2805/9033488839_abbc0e7e1a_k.jpg
+  url_m: http://farm3.staticflickr.com/2805/9033488839_e1e1a57dd0_m.jpg
+  url_t: http://farm3.staticflickr.com/2805/9033488839_e1e1a57dd0_t.jpg
+- !ruby/object:Jekyll::FlickrPhoto 
+  id: "9035699968"
+  title: Ireland
+  url: http://farm6.staticflickr.com/5448/9035699968_f6c7303006.jpg
+  url_b: http://farm6.staticflickr.com/5448/9035699968_f6c7303006_b.jpg
+  url_c: http://farm6.staticflickr.com/5448/9035699968_f6c7303006_c.jpg
+  url_h: http://farm6.staticflickr.com/5448/9035699968_0f6f13fc7e_h.jpg
+  url_k: http://farm6.staticflickr.com/5448/9035699968_46f0fd7010_k.jpg
+  url_m: http://farm6.staticflickr.com/5448/9035699968_f6c7303006_m.jpg
+  url_t: http://farm6.staticflickr.com/5448/9035699968_f6c7303006_t.jpg
+- !ruby/object:Jekyll::FlickrPhoto 
+  id: "9033462973"
+  title: Kinsale
+  url: http://farm4.staticflickr.com/3668/9033462973_ce6de0b865.jpg
+  url_b: http://farm4.staticflickr.com/3668/9033462973_ce6de0b865_b.jpg
+  url_c: http://farm4.staticflickr.com/3668/9033462973_ce6de0b865_c.jpg
+  url_h: http://farm4.staticflickr.com/3668/9033462973_4bb52193b8_h.jpg
+  url_k: http://farm4.staticflickr.com/3668/9033462973_8c7df34897_k.jpg
+  url_m: http://farm4.staticflickr.com/3668/9033462973_ce6de0b865_m.jpg
+  url_t: http://farm4.staticflickr.com/3668/9033462973_ce6de0b865_t.jpg
+- !ruby/object:Jekyll::FlickrPhoto 
+  id: "9033482115"
+  title: Sunset at an Irish beach
+  url: http://farm3.staticflickr.com/2860/9033482115_54974cfd47.jpg
+  url_b: http://farm3.staticflickr.com/2860/9033482115_54974cfd47_b.jpg
+  url_c: http://farm3.staticflickr.com/2860/9033482115_54974cfd47_c.jpg
+  url_h: http://farm3.staticflickr.com/2860/9033482115_93f00878c4_h.jpg
+  url_k: http://farm3.staticflickr.com/2860/9033482115_69749ea244_k.jpg
+  url_m: http://farm3.staticflickr.com/2860/9033482115_54974cfd47_m.jpg
+  url_t: http://farm3.staticflickr.com/2860/9033482115_54974cfd47_t.jpg

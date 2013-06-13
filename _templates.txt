@@ -1,0 +1,70 @@
+### Words ###
+
+##########
+# YAML Headers
+##########
+---
+title: Gran Torino Review
+layout: words
+description: Quick reaction to Clint Eastwood’s Gran Torino. # Used for SEO stuff
+category: words
+link: http://anandtech.com/an-article # (Optional) for linked-list posts
+---
+
+---
+title: This should match the flickr photoset title
+layout: pictures
+description: France is an amazing country, here's some pictures I took there.
+category: pictures
+photoset: 72157633464324752
+---
+
+
+##########
+# Inline images (for use with picturefill.js)
+# [data-picture] div is text-align:center by default, can take
+# .align-right or .align-left classes
+##########
+
+<div data-picture data-alt="alttouse" data-title="titletouse">
+	<div
+	data-src="/assets/photos/filename-small.jpg"
+	></div>
+
+	<div
+	data-src="/assets/photos/filename-medium.jpg"
+	data-media="(min-width: 400px)"
+	></div>
+
+    <div
+    data-src="/assets/photos/filename-large.jpg"
+    data-media="(min-width: 800px)"
+    ></div>
+
+    <!-- Fallback content for non-JS browsers. -->
+    <noscript>
+        <img src="/assets/photos/filename-large.jpg" alt="alttouse" title="titletouse">
+    </noscript>
+</div>
+
+
+##########
+# Liquid stuff
+##########
+
+# For activating pygments processing
+# Should probably look into styling
+
+{% highlight html %}
+	// stuff
+{% endhighlight %}
+
+
+# For displaying raw liquid stuff.
+{% raw %}
+    <ul>
+    {% for img in page.photos %}
+        <li><imb src="thumb-{{ img.file }}" alt="{{ img.alt }}"/></li> and here it just keeps going on and on and on.
+    {% endfor %}
+    </ul>
+{% endraw %}

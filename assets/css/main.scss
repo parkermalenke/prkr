@@ -418,9 +418,30 @@ article {
 		white-space: pre;
 	}
 
+	[data-picture] {
+		text-align: center;
+	}
+
+	[data-picture].align-left {
+		text-align: left;
+	}
+
+	[data-picture].align-right {
+		text-align: right;
+	}
+
 	img {
-		width: 100%;
+		max-width: 100%;
 		margin: 0.5em 0;
+
+		$height: 200px;
+		@while $height <= 1600 {
+			@media (min-height: $height) {
+				max-height: 1.3*$height;
+				width: auto;
+			}
+			$height: $height + 50;
+		}
 	}
 
 	footer {

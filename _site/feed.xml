@@ -8,164 +8,195 @@
 
 		
 		<item>
-			<title>Rss test post</title>
+			<title>Ireland</title>
 			<description>
 				
-				&lt;p&gt;What does the rss reader think of this?&lt;/p&gt;
-
+				
+				&lt;img src="http://farm3.staticflickr.com/2805/9033488839_e1e1a57dd0_b.jpg" title="Near the cliffs of Moher" /&gt;
+				
+				&lt;img src="http://farm6.staticflickr.com/5448/9035699968_f6c7303006_b.jpg" title="Ireland" /&gt;
+				
+				&lt;img src="http://farm4.staticflickr.com/3668/9033462973_ce6de0b865_b.jpg" title="Kinsale" /&gt;
+				
+				&lt;img src="http://farm3.staticflickr.com/2860/9033482115_54974cfd47_b.jpg" title="Sunset at an Irish beach" /&gt;
+				
 				
 			</description>
-			<link>http://localhost:4000/words/2013/another-test-post-for-rss/</link>
-			<guid>http://localhost:4000/words/2013/another-test-post-for-rss/</guid>
-			<pubDate>Mon, 10 Jun 2013 00:00:00 -0600</pubDate>
+			<link>http://prkr.me/pictures/2013/ireland/</link>
+			<guid>http://prkr.me/pictures/2013/ireland/</guid>
+			<pubDate>Thu, 13 Jun 2013 00:00:00 -0600</pubDate>
 		</item>
 		
 		<item>
-			<title>First test post</title>
+			<title>How To Teach College Students</title>
 			<description>
 				
-				&lt;p&gt;Hello test post, how are you doing? This is some test text. The bluth's were here. And they were there. They were everywhere. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a look over there dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.&lt;/p&gt;
+				&lt;p&gt;This guide contains my thoughts as a seasoned college student on what makes a teacher good or bad. Nearly forty instructors over three years of college level education have constructed this understanding of educators. Some taught me how to deal with bureaucracy, some taught me how to transcribe slide shows onto lined paper, some taught me a little, some taught me a lot. In my experience, a number of good or bad practices exist which combine to determine the overall quality of a teacher. Hopefully this manifesto of sorts will drive beneficial change in the typical college classroom experience.
+Of course, the advice proffered below predominantly reflects my perception of education and does not represent an exhaustive collection of student opinions. I do believe, however, that many students would benefit if teachers put these principles into broader practice. At least my ideas might provoke discussion among teachers and students about efficient transmittance of knowledge.&lt;/p&gt;
 
-&lt;p&gt;The bluth's were here. And they were there. They were everywhere. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a look over there dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.&lt;/p&gt;
+&lt;h2&gt;Good Ideas&lt;/h2&gt;
 
-&lt;div data-picture data-alt=&quot;&quot; data-title=&quot;&quot;&gt;
-    &lt;div data-src=&quot;http://localhost:4000/assets/photos/blue-small.jpg&quot;&gt;&lt;/div&gt;
-    &lt;div data-src=&quot;http://localhost:4000/assets/photos/blue-medium.jpg&quot; data-media=&quot;(min-width: 400px)&quot;&gt;&lt;/div&gt;
-    &lt;div data-src=&quot;http://localhost:4000/assets/photos/blue-large.jpg&quot;  data-media=&quot;(min-width: 800px)&quot;&gt;&lt;/div&gt;
+&lt;h3&gt;Transparency&lt;/h3&gt;
 
-    &lt;!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. --&gt;
+&lt;p&gt;Teachers must understand what we as students need to know and then clearly communicate it to us. This applies to the general course material in addition to individual homework assignments and exams. I find it frustrating, if not disrespectful, when teachers fail to clearly delineate what they expect of students. My best experiences with such clarity have come from math classes that were typically organized with a very manageable load of weekly homework, which applied concepts from well articulated lectures, and periodic exams that students entered possessing well-formed notions about the types of problems to expect. Here are the key points:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;When outside of class we should spend 90 per cent of our time applying concepts we already have a decent grasp of, preferably from prior teaching, and only 10 per cent on understanding the assignment.&lt;/li&gt;
+&lt;li&gt;Some professors try to obfuscate their exam expectations by providing students with little to no information about what to expect. I understand the motivation behind this, but failing to produce either past exams or informative study guides only introduces ineffective ambiguity into the studying process. Students have to balance time between many classes, and with only a diffuse idea of what to expect on exams they will likely spend either too much or too little time preparing.&lt;/li&gt;
+&lt;li&gt;Use a standard and understandable grading scale for the class. The fewer types of items that go into the final grade the better.&lt;/li&gt;
+&lt;li&gt;Students should find all the relevant details for various course components in the syllabus.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;Organization&lt;/h3&gt;
+
+&lt;p&gt;Transparency goes cheek by jowl with organization. A minimal and consistent class structure helps significantly when establishing an accessibly organized (and hence transparent) class structure.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Homework should come at regular, rational intervals; weekly rather than two periods after we finish each chapter.&lt;/li&gt;
+&lt;li&gt;Keep notes and slides consolidated. No one likes printing five different documents just to understand one lecture (or the class structure).&lt;/li&gt;
+&lt;li&gt;Slides, if used, should have a consistent organization. Think about those who prefer to take notes on blank paper when creating and presenting them.&lt;/li&gt;
+&lt;li&gt;Again, we should spend 90 per cent of our effort on learning the material and 10 per cent on accessing it.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;Typography&lt;/h3&gt;
+
+&lt;p&gt;This is a little pet peeve of mine and perhaps less important to creating a good learning experience, but still influential. Good typography competes with good grammar when creating clear and professional communication. You can find several good resources for learning more about this essential subject online. (&lt;a href=&quot;http://www.typographyforlawyers.com/?page_id=1300&quot;&gt;Here&lt;/a&gt;, &lt;a href=&quot;http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-better-typography&quot;&gt;here&lt;/a&gt;, &lt;a href=&quot;http://www.thedesigncubicle.com/2008/12/10-common-typography-mistakes/&quot;&gt;here&lt;/a&gt;, and &lt;a href=&quot;http://www.sitepoint.com/principles-beautiful-typography/&quot;&gt;here&lt;/a&gt;).&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Learn how to choose a font (hint: &lt;a href=&quot;http://comicsanscriminal.com/&quot;&gt;not comic sans&lt;/a&gt;) and use it consistently throughout slides and documents.&lt;/li&gt;
+&lt;li&gt;Do not use colored, capital, bolded, or underlined words (or some horrible combination thereof) without very good reason.&lt;/li&gt;
+&lt;li&gt;Do not use myriad different font sizes. Pick two or three and stick with them.&lt;/li&gt;
+&lt;li&gt;The same goes for the number of different fonts.&lt;/li&gt;
+&lt;li&gt;Learn to use &lt;a href=&quot;http://www.dummies.com/how-to/content/using-em-dashes-and-en-dashes-properly.html&quot;&gt;em dashes&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;Bad Ideas&lt;/h2&gt;
+
+&lt;h3&gt;Independent Floundering&lt;/h3&gt;
+
+&lt;p&gt;I believe every student should exhibit proficiency at independent learning. It forms an essential part of being a genuine individual. With that said, I am paying you through the nose to facilitate my learning. I expect you to teach me. All too often, however, a teacher’s attempt at encouraging students to learn a topic outside of class results in the pupil simply floundering around online, bouncing back and forth between Yahoo Answers and Wikipedia.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Build a launch pad (with lectures or concise but sufficient instructions) that students can base their independent investigations on.&lt;/li&gt;
+&lt;li&gt;Provide an accessible method of confirming results that students find (office hours or a scheduled time in lecture to discuss progress on the assignment before turning it in). Trial and error has never been an efficient learning method.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;Entertaining&lt;/h3&gt;
+
+&lt;p&gt;Do not set out to entertain us. College students know an infinitude of ways to keep themselves better entertained than attending class. Your attempts will simply muddle up the concepts and add to the effort students expend on extracting information from class. Focus on teaching your material in a clear, concise, and accessible manner. If some students find themselves enjoying class, so much the better.&lt;/p&gt;
+
+&lt;h3&gt;Severity&lt;/h3&gt;
+
+&lt;p&gt;A college education is rooted on the idea of a contract between the school (professors) and students. We have mutually agreed that the school will provide knowledge and the students will provide money. Besides the simple standards of professionalism and etiquette applicable in any social situation, this is the extent of any obligation students have to professors. Specifically, professors should not impose penalties on behavior they personally and individually disapprove of but which does not impede other students. For example, skipping class, unobtrusively texting, working on the crossword, completing homework from other classes, etc. Of course all these activities may be viewed negatively, but the professor still receives payment, the contract is upheld. Once such activities impinge on the ability of other students to receive instruction action may be undertaken. But setting strict, arcane rules at the outset serves more to create a degree of hostility between students and the teacher.&lt;/p&gt;
+
+&lt;h3&gt;Repetition&lt;/h3&gt;
+
+&lt;p&gt;Some students may need to hear a concept several times in several contexts before comprehending it. Some may simply need a brief reminder of it. Do not treat these two the same.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Lectures should form the backbone of a class. Students who quickly grasp the material should be able to learn everything they need from class. Required, basic, information should not be scattered through various learning outlets. Doing so presents an unorganized and opaque challenge.&lt;/li&gt;
+&lt;li&gt;Additional veins of teaching should come as optional layers added atop the lecture. Requiring students to complete repetitive reading quizzes, homework, lab reports, online lectures, and recitation quizzes may help some, but it more likely burdens others who would do better spending time on another class they have a harder time grasping.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;Online Anything&lt;/h3&gt;
+
+&lt;p&gt;Digitization of homework or quizzes has never aided students and only added a depressingly high administrative and logistical barrier between their brains and course material.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;It shackles students to the distraction machine known as a computer.&lt;/li&gt;
+&lt;li&gt;I have yet to see an online homework system that works well in a modern web browser and conforms to standard usability practices. This creates an unnecessary technological hurdle that wastes time and effort.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+				
+			</description>
+			<link>http://prkr.me/words/2011/how-to-teach-college-students/</link>
+			<guid>http://prkr.me/words/2011/how-to-teach-college-students/</guid>
+			<pubDate>Mon, 03 Oct 2011 00:00:00 -0600</pubDate>
+		</item>
+		
+		<item>
+			<title>Gran Torino Review</title>
+			<description>
+				
+				&lt;div data-picture data-alt=&quot;Gran Torino Movie Poster&quot; data-title=&quot;&quot;&gt;
+    &lt;div
+    data-src=&quot;/assets/photos/gtr-poster.jpeg&quot;
+    &gt;&lt;/div&gt;
+
+    &lt;div
+    data-src=&quot;/assets/photos/gtr-poster.jpeg&quot;
+    data-media=&quot;(min-width: 400px)&quot;
+    &gt;&lt;/div&gt;
+
+    &lt;div
+    data-src=&quot;/assets/photos/gtr-poster.jpeg&quot;
+    data-media=&quot;(min-width: 800px)&quot;
+    &gt;&lt;/div&gt;
+
+    &lt;!-- Fallback content for non-JS browsers. --&gt;
     &lt;noscript&gt;
-        &lt;img src=&quot;http://localhost:4000/assets/photos/.&quot; alt=&quot;&quot;&gt;
+        &lt;img src=&quot;/assets/photos/gtr-poster.jpeg&quot; alt=&quot;Gran Torino Movie Poster&quot; title=&quot;&quot;&gt;
     &lt;/noscript&gt;
 &lt;/div&gt;
 
 
+&lt;p&gt;I nearly always have certain expectations when I go to see a movie. Rarely does the movie fit those preconceptions. Sometimes it falls short, sometimes it surpasses. Only once in a great while does a film deliver so far beyond my hopes as Gran Torino did.&lt;/p&gt;
 
+&lt;p&gt;A very complex, but never confusing tale, Clint Eastwood’s performance contains meaningful conversation on manhood, family, race, neighbors, courage, conviction, life, and death. With excellent acting and a beautiful production quality, this film should be on everyone’s list.&lt;/p&gt;
 
-&lt;div data-picture data-alt=&quot;&quot; data-title=&quot;&quot;&gt;
-    &lt;div data-src=&quot;/assets/photos/sky-small.jpg&quot;&gt;&lt;/div&gt;
-    &lt;div data-src=&quot;/assets/photos/sky-medium.jpg&quot;   data-media=&quot;(min-width: 400px)&quot;&gt;&lt;/div&gt;
-    &lt;div data-src=&quot;/assets/photos/sky-large.jpg&quot;    data-media=&quot;(min-width: 800px)&quot;&gt;&lt;/div&gt;
+				
+			</description>
+			<link>http://prkr.me/words/2011/gran-torino-review/</link>
+			<guid>http://prkr.me/words/2011/gran-torino-review/</guid>
+			<pubDate>Tue, 21 Jun 2011 00:00:00 -0600</pubDate>
+		</item>
+		
+		<item>
+			<title>Of Mollusks &amp; Men</title>
+			<description>
+				
+				&lt;p&gt;Scientists tell us that what we can observe with our five senses—the familiar touch, taste, sight, sound, and smell—compose the whole of reality, or at least the whole of relevant reality. Theologians tell us that our observations are just the beginning of reality. They say our physical existence on earth comprises a short second in comparison to the eternal pleasures or punishments that await us on the other side of this material world. At the heart of this disagreement lies the competing ideas of natural and supernatural, physical and metaphysical.
+Many people view the supernatural as something wholly alien to human experience, even if they believe in it’s existence. Words like ‘supernatural’ and ‘metaphysics’ conjure up images of ghosts, witches, omens, and other mysticisms since discredited as primitive superstitions. Only the natural things that we can observe are universally accepted as a part of reality. But does that mean that atoms did not exist before we could observe them (still only possible through indirect means)? Of course not.&lt;/p&gt;
 
-    &lt;!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. --&gt;
+&lt;p&gt;Consider a mollusk. Typical sensory organs for members of class Gastropoda include olfaction (smell), sight (greatly simplified from the human version, sensing simply changes from light to dark), balance, and touch. With such a limited palette of perception, the reality apparent to a mollusk is, quite obviously, much narrower and simplistic compared to a human. It would seem quite impossible for a mollusk to conceive of the world as humans know it. Homo sapiens actually possesses at least 10 different senses, and up to 16 depending on the definition of ‘sense’ used. A mollusk, with limited or no ability to receive and process information in these other senses (the most obvious being that of sound) could have no conception of the greater world around them that we know exists.&lt;/p&gt;
+
+&lt;p&gt;Beyond the human senses, certain animals possess various faculties foreign to us including electroreception, pressure detection, and polarized light detection. This begs the question: are there additional senses that we have no conception of? More specifically, do parts of reality exist that are simply beyond our powers of observation? Pridefully imposing our own anthropomorphized perception of reality upon the whole of what actually might compose reality simply reflects a willful ignorance. While science, based by definition upon our observational capabilities, could not answer these questions definitively, that does not mean the questions do not have answers.&lt;/p&gt;
+
+&lt;div data-picture data-alt=&quot;Gran Torino Movie Poster&quot; data-title=&quot;&quot;&gt;
+    &lt;div
+    data-src=&quot;/assets/photos/omam-scale.png&quot;
+    &gt;&lt;/div&gt;
+
+    &lt;div
+    data-src=&quot;/assets/photos/omam-scale.png&quot;
+    data-media=&quot;(min-width: 400px)&quot;
+    &gt;&lt;/div&gt;
+
+    &lt;div
+    data-src=&quot;/assets/photos/omam-scale.png&quot;
+    data-media=&quot;(min-width: 800px)&quot;
+    &gt;&lt;/div&gt;
+
+    &lt;!-- Fallback content for non-JS browsers. --&gt;
     &lt;noscript&gt;
-        &lt;img src=&quot;assets/photos/.&quot; alt=&quot;&quot;&gt;
+        &lt;img src=&quot;/assets/photos/omam-scale.png&quot; alt=&quot;Gran Torino Movie Poster&quot; title=&quot;&quot;&gt;
     &lt;/noscript&gt;
 &lt;/div&gt;
 
 
-&lt;p&gt;tricky dick&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;    &lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
-    {% for img in page.photos %}
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;imb&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;thumb-{{ img.file }}&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;{{ img.alt }}&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt; and here it just keeps going on and on and on.
-    {% endfor %}
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;First test post&lt;/p&gt;
-
-&lt;blockquote&gt;&lt;p&gt;Here's a block quote from some old fool on some old website that I'm making fun of. Or maybe from some smart dude who I think other people should listen to.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;The bluth's were here. And they were there. They were everywhere. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a look over there dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.&lt;/p&gt;
+&lt;p&gt;I propose a new way of thinking about the natural/supernatural division. Instead of referring to things outside of reality, supernatural should refer to things beyond our ability of observing reality. In other words, there is no such thing as the supernatural. Everything is a part of nature, just not necessarily a part that we can observe. Imagine a number line that measures reality. Occupying the area from, say, 2–4 is a mollusk’s conception of reality. Humans take up 3.5–9, perhaps. Rose bushes reside around 0.5. Anything outside of our portion of reality would compose what we typically refer to as the supernatural/metaphysical. Of course, it’s easy to approximate or at least conceptualize the experiences of organisms and objects below our range of existence. Just like we would represent a supernatural being to a mullusk, anything above our range could possibly correspond to a god-like creature. A Christian God would theoretically occupy the entirety of an infinitely long line. This God is quite natural, a part of reality, just not wholly available to human capability.&lt;/p&gt;
 
 				
 			</description>
-			<link>http://localhost:4000/words/2013/test-post-1/</link>
-			<guid>http://localhost:4000/words/2013/test-post-1/</guid>
-			<pubDate>Wed, 17 Apr 2013 00:00:00 -0600</pubDate>
-		</item>
-		
-		<item>
-			<title>Second test post</title>
-			<description>
-				
-				&lt;p&gt;The bluth's were here. And they were there. They were everywhere. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a look over there dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.&lt;/p&gt;
-
-				
-			</description>
-			<link>http://localhost:4000/words/2013/test-post-2/</link>
-			<guid>http://localhost:4000/words/2013/test-post-2/</guid>
-			<pubDate>Sun, 17 Mar 2013 00:00:00 -0600</pubDate>
-		</item>
-		
-		<item>
-			<title>Hello, pi day, how are you good sir?</title>
-			<description>
-				
-				
-				&lt;img src="http://farm4.staticflickr.com/3690/8882528531_84c85ba4a3_b.jpg" title="This is a new test title! Yay." /&gt;
-				
-				&lt;img src="http://farm4.staticflickr.com/3713/8882541409_40b4d27aae_b.jpg" title="import39_(9_of_49)" /&gt;
-				
-				&lt;img src="http://farm8.staticflickr.com/7355/8883174176_06717bb858_b.jpg" title="import39_(8_of_49)" /&gt;
-				
-				&lt;img src="http://farm4.staticflickr.com/3806/8883184332_3d0e6a9a80_b.jpg" title="import39_(7_of_49)" /&gt;
-				
-				&lt;img src="http://farm9.staticflickr.com/8411/8883193704_8aa576bd18_b.jpg" title="import39_(3_of_49)" /&gt;
-				
-				&lt;img src="http://farm6.staticflickr.com/5446/8883203654_487f25cf65_b.jpg" title="import39_(1_of_49)" /&gt;
-				
-				
-			</description>
-			<link>http://localhost:4000/pictures/2013/hello-pi-day/</link>
-			<guid>http://localhost:4000/pictures/2013/hello-pi-day/</guid>
-			<pubDate>Fri, 15 Mar 2013 00:00:00 -0600</pubDate>
-		</item>
-		
-		<item>
-			<title>Here’s a test post &rarr;</title>
-			<description>
-				
-				&lt;p&gt;Here's an interesting article about retina displays by good old anandtech.&lt;/p&gt;
-
-				
-			</description>
-			<link>http://anandtech.com/an-article</link>
-			<guid>http://localhost:4000/words/2012/test-post-3/</guid>
-			<pubDate>Sat, 17 Mar 2012 00:00:00 -0600</pubDate>
-		</item>
-		
-		<item>
-			<title>A tricky one huh</title>
-			<description>
-				
-				
-				&lt;img src="http://farm4.staticflickr.com/3128/5874493029_84c8180d62_b.jpg" title="Plants-19" /&gt;
-				
-				&lt;img src="http://farm4.staticflickr.com/3079/5875051794_d239e119b4_b.jpg" title="Plants-17" /&gt;
-				
-				&lt;img src="http://farm4.staticflickr.com/3218/5874491727_5f01bb856a_b.jpg" title="Plants-16" /&gt;
-				
-				&lt;img src="http://farm6.staticflickr.com/5271/5875050406_6b86b8f6c4_b.jpg" title="Plants-14" /&gt;
-				
-				&lt;img src="http://farm4.staticflickr.com/3280/5875049968_7649a03dd4_b.jpg" title="Plants-13" /&gt;
-				
-				&lt;img src="http://farm6.staticflickr.com/5276/5875049114_1abbf798de_b.jpg" title="Plants-11" /&gt;
-				
-				&lt;img src="http://farm8.staticflickr.com/7355/8883174176_06717bb858_b.jpg" title="import39_(8_of_49)" /&gt;
-				
-				
-			</description>
-			<link>http://localhost:4000/pictures/2011/a-photo-post/</link>
-			<guid>http://localhost:4000/pictures/2011/a-photo-post/</guid>
-			<pubDate>Thu, 03 Nov 2011 00:00:00 -0600</pubDate>
-		</item>
-		
-		<item>
-			<title>Fourth test post</title>
-			<description>
-				
-				&lt;p&gt;And here's some content for it.&lt;/p&gt;
-
-&lt;p&gt;The bluth's were here. And they were there. They were everywhere. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a look over there dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.&lt;/p&gt;
-
-				
-			</description>
-			<link>http://localhost:4000/words/2011/an-article/</link>
-			<guid>http://localhost:4000/words/2011/an-article/</guid>
-			<pubDate>Mon, 30 May 2011 00:00:00 -0600</pubDate>
+			<link>http://prkr.me/words/2010/of-mollusks-and-men/</link>
+			<guid>http://prkr.me/words/2010/of-mollusks-and-men/</guid>
+			<pubDate>Thu, 22 Jul 2010 00:00:00 -0600</pubDate>
 		</item>
 		
 

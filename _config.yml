@@ -1,9 +1,9 @@
 name: Parker has a website.
 description: Words and pictures by Parker Malenke.
 
-url: "http://localhost:4000"
+url: "http://prkr.me"
 
-paginate: 2
+paginate: 5
 paginate_path: 'page:num'
 
 markdown: rdiscount
