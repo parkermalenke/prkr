@@ -1,0 +1,21 @@
+--- 
+- !ruby/object:Jekyll::FlickrPhoto 
+  id: "9305555092"
+  title: Untitled
+  url: http://farm6.staticflickr.com/5460/9305555092_e6d5df8755.jpg
+  url_b: http://farm6.staticflickr.com/5460/9305555092_e6d5df8755_b.jpg
+  url_c: http://farm6.staticflickr.com/5460/9305555092_e6d5df8755_c.jpg
+  url_h: http://farm6.staticflickr.com/5460/9305555092_78fdb4e1fd_h.jpg
+  url_k: http://farm6.staticflickr.com/5460/9305555092_d7b1d1436b_k.jpg
+  url_m: http://farm6.staticflickr.com/5460/9305555092_e6d5df8755_m.jpg
+  url_t: http://farm6.staticflickr.com/5460/9305555092_e6d5df8755_t.jpg
+- !ruby/object:Jekyll::FlickrPhoto 
+  id: "9302777931"
+  title: Untitled
+  url: http://farm6.staticflickr.com/5539/9302777931_b13cf8c7b8.jpg
+  url_b: http://farm6.staticflickr.com/5539/9302777931_b13cf8c7b8_b.jpg
+  url_c: http://farm6.staticflickr.com/5539/9302777931_b13cf8c7b8_c.jpg
+  url_h: http://farm6.staticflickr.com/5539/9302777931_7d5f10f684_h.jpg
+  url_k: http://farm6.staticflickr.com/5539/9302777931_4d3a143788_k.jpg
+  url_m: http://farm6.staticflickr.com/5539/9302777931_b13cf8c7b8_m.jpg
+  url_t: http://farm6.staticflickr.com/5539/9302777931_b13cf8c7b8_t.jpg
