@@ -474,8 +474,7 @@ article {
       width: 650px;
       margin: 10px auto 0; } }
   .photo-article [data-picture] {
-    padding: 50px 0;
-    overflow: scroll; }
+    padding: 50px 0; }
     .photo-article [data-picture] img {
       margin: 0 auto;
       display: block; }
