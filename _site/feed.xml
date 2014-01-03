@@ -8,6 +8,36 @@
 
 		
 		<item>
+			<title>A New Year and a New Book Rating Scheme</title>
+			<description>
+				
+				&lt;p&gt;A few days ago I completed my goal of reading 35 books in 2013. I&amp;rsquo;ve logged all the books I&amp;rsquo;ve read for the past three years now (on &lt;a href=&quot;http://goodreads.com/parkermalenke&quot;&gt;Goodreads&lt;/a&gt;), and it&amp;rsquo;s kind of nice to look back at my recent literary history with ease. When I started rating books I didn&amp;rsquo;t really have much of a plan for which books got which ratings. And I felt bad about giving books negative ratings, meaning I rarely gave out one or two stars. This paradigm doesn&amp;rsquo;t have much expressive power, so starting with books I read in 2014 I&amp;rsquo;m going to use a new rating scheme, specified here:&lt;/p&gt;
+
+&lt;p&gt;&amp;#9733;&amp;#9733;&amp;#9733;&amp;#9733;&amp;#9733;&lt;br/&gt;
+I absolutely loved the book&amp;mdash;wouldn&amp;rsquo;t change anything about it. There&amp;rsquo;s a good chance I&amp;rsquo;ll recommend these books to most people.&lt;/p&gt;
+
+&lt;p&gt;&amp;#9733;&amp;#9733;&amp;#9733;&amp;#9733;&lt;br/&gt;
+A very good book. Stood out as an above average read that I enjoyed a lot. Still, some aspects of the book could use improving before reaching five star status.&lt;/p&gt;
+
+&lt;p&gt;&amp;#9733;&amp;#9733;&amp;#9733;&lt;br/&gt;
+Solidly average. No real negatives, but nothing truly outstanding either. Worth spending the time to read, but not necessarily worth re-reading.&lt;/p&gt;
+
+&lt;p&gt;&amp;#9733;&amp;#9733;&lt;br/&gt;
+Below average. Some redeeming qualities, but my time would probably have been better spent elsewhere. Might still recommend to others if I felt they could enjoy it more.&lt;/p&gt;
+
+&lt;p&gt;&amp;#9733;&lt;br/&gt;
+A bad book. Didn&amp;rsquo;t enjoy it, and didn&amp;rsquo;t really find anything beneficial in it. Wouldn&amp;rsquo;t recommend to others.&lt;/p&gt;
+
+&lt;p&gt;My new rubric doesn&amp;rsquo;t necessarily depend on the re-readability of a book. There are some fantastic books that I would never really plan on re-reading, either because the style of the book doesn&amp;rsquo;t lend itself to that or just because of logistics. (How many times can one read &lt;em&gt;Infinite Jest&lt;/em&gt;?)&lt;/p&gt;
+
+				
+			</description>
+			<link>http://prkr.me/words/2014/new-year-new-book-rating-scheme/</link>
+			<guid>http://prkr.me/words/2014/new-year-new-book-rating-scheme/</guid>
+			<pubDate>Thu, 02 Jan 2014 00:00:00 -0700</pubDate>
+		</item>
+		
+		<item>
 			<title>Canyonlands NP</title>
 			<description>
 				
@@ -27,17 +57,17 @@
 			<title>Gene Patents and the Supreme Court</title>
 			<description>
 				
-				&lt;p&gt;The US Supreme Court recently issued a ruling in the case &lt;em&gt;Association of Molecular Pathology v. Myriad Genetics&lt;/em&gt; that addresses the validity of patents on genes, including those on portions of the human genome. This decision determined that naturally occurring genes are products of nature and therefore ineligible for patent protection, but confirmed that cDNA (complementary DNA) can be patented. It's fantastic to see the legal system recognize genes as the natural resources that they are, although the decision should have extended to cDNA as well.&lt;/p&gt;
+				&lt;p&gt;The US Supreme Court recently issued a ruling in the case &lt;em&gt;Association of Molecular Pathology v. Myriad Genetics&lt;/em&gt; that addresses the validity of patents on genes, including those on portions of the human genome. This decision determined that naturally occurring genes are products of nature and therefore ineligible for patent protection, but confirmed that cDNA (complementary DNA) can be patented. It&amp;rsquo;s fantastic to see the legal system recognize genes as the natural resources that they are, although the decision should have extended to cDNA as well.&lt;/p&gt;
 
 &lt;p&gt;Typical genes in eukaryotic cells (those that make up complex multicellular organisms like humans) contain two types of sequences termed &lt;em&gt;introns&lt;/em&gt; and &lt;em&gt;exons&lt;/em&gt;. In the process of expressing a gene the intron sections are cut out and the exon components are spliced together producing the final sequence that gets turned into the end product, a protein. The cDNA version of a gene is the same as the version found in a chromosome, just with all the introns removed. So why can corporations patent cDNA and not the regular DNA found in end genome?&lt;/p&gt;
 
-&lt;p&gt;The catch is that cDNA isn't technically a naturally occurring product. In the cell, the processed version of the full gene is actually made out of RNA, a molecule similar to DNA but different in a few key ways. Researchers often make cDNA from isolated RNA, however, using very simple and common procedures because the processed version of a gene is much easier to work with for many standard laboratory experiments.&lt;/p&gt;
+&lt;p&gt;The catch is that cDNA isn&amp;rsquo;t technically a naturally occurring product. In the cell, the processed version of the full gene is actually made out of RNA, a molecule similar to DNA but different in a few key ways. Researchers often make cDNA from isolated RNA, however, using very simple and common procedures because the processed version of a gene is much easier to work with for many standard laboratory experiments.&lt;/p&gt;
 
-&lt;p&gt;At the start of the genomics era it was difficult and expensive to decipher what the sequence for a given gene was, but in the years since the turn of the century the cost has decreased dramatically, even &lt;a href=&quot;http://www.genome.gov/sequencingcosts/&quot;&gt;outpacing Moore's law&lt;/a&gt; over the past few years. The general idea behind patents is to provide an incentive for members of society to undertake an initial outlay in costs that will eventually produce something beneficial to society. What the Supreme Court is communicating with their ruling is that the production of cDNA for certain genes is an activity beneficial to society but which requires a monetary incentive for researchers to undertake that task. This is simply not the case however. The identification of a naturally occurring gene sequence is very easy and inexpensive with modern procedures, and producing a cDNA version of a gene is even easier. Our &lt;a href=&quot;http://en.wikipedia.org/wiki/Copyright_Clause&quot;&gt;constitution specifies&lt;/a&gt; that patents are to be granted &quot;to promote the progress of science and useful arts&quot;, yet it's not clear why the court believes cDNA patents are necessary for accomplishing this goal.&lt;/p&gt;
+&lt;p&gt;At the start of the genomics era it was difficult and expensive to decipher what the sequence for a given gene was, but in the years since the turn of the century the cost has decreased dramatically, even &lt;a href=&quot;http://www.genome.gov/sequencingcosts/&quot;&gt;outpacing Moore&amp;rsquo;s law&lt;/a&gt; over the past few years. The general idea behind patents is to provide an incentive for members of society to undertake an initial outlay in costs that will eventually produce something beneficial to society. What the Supreme Court is communicating with their ruling is that the production of cDNA for certain genes is an activity beneficial to society but which requires a monetary incentive for researchers to undertake that task. This is simply not the case however. The identification of a naturally occurring gene sequence is very easy and inexpensive with modern procedures, and producing a cDNA version of a gene is even easier. Our &lt;a href=&quot;http://en.wikipedia.org/wiki/Copyright_Clause&quot;&gt;constitution specifies&lt;/a&gt; that patents are to be granted &amp;ldquo;to promote the progress of science and useful arts&amp;rdquo;, yet it&amp;rsquo;s not clear why the court believes cDNA patents are necessary for accomplishing this goal.&lt;/p&gt;
 
-&lt;p&gt;The ruling itself contains language that could potentially invalidate cDNA patents. In &lt;a href=&quot;http://www.supremecourt.gov/opinions/12pdf/12-398_1b7d.pdf&quot;&gt;their opinion&lt;/a&gt; the justices &quot;hold that genes and the information they encode are not patent eligible…simply because they have been isolated from the surrounding genetic material.&quot; The process of producing cDNA is arguably a method of isolating the information encoded by a gene from surrounding genetic material.&lt;/p&gt;
+&lt;p&gt;The ruling itself contains language that could potentially invalidate cDNA patents. In &lt;a href=&quot;http://www.supremecourt.gov/opinions/12pdf/12-398_1b7d.pdf&quot;&gt;their opinion&lt;/a&gt; the justices &amp;ldquo;hold that genes and the information they encode are not patent eligible…simply because they have been isolated from the surrounding genetic material.&amp;rdquo; The process of producing cDNA is arguably a method of isolating the information encoded by a gene from surrounding genetic material.&lt;/p&gt;
 
-&lt;p&gt;Ultimately, the invalidation of patents on DNA sequences found in the genome is more important than the lifting of intellectual property restrictions on cDNA. The ruling allows genetic screening of the genome (tests which can identify gene variants to help doctors make treatment decisions) without interference from patent holders like Myriad Genetics, who until now could charge licensing fees or prevent companies and researchers from conducting the tests at all. This is an important step forward for the sciences, and it's encouraging to see that this was a unanimous decision amongst the justices. cDNA patents could potentially prove troublesome to researchers investigating patented genes, but perhaps those restrictions will be removed in time as well.&lt;/p&gt;
+&lt;p&gt;Ultimately, the invalidation of patents on DNA sequences found in the genome is more important than the lifting of intellectual property restrictions on cDNA. The ruling allows genetic screening of the genome (tests which can identify gene variants to help doctors make treatment decisions) without interference from patent holders like Myriad Genetics, who until now could charge licensing fees or prevent companies and researchers from conducting the tests at all. This is an important step forward for the sciences, and it&amp;rsquo;s encouraging to see that this was a unanimous decision amongst the justices. cDNA patents could potentially prove troublesome to researchers investigating patented genes, but perhaps those restrictions will be removed in time as well.&lt;/p&gt;
 
 				
 			</description>
