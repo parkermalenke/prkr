@@ -8,6 +8,28 @@
 
 		
 		<item>
+			<title>Oxford</title>
+			<description>
+				
+				
+				&lt;img src="http://farm3.staticflickr.com/2860/11764613683_3f9afcc613_b.jpg" title="Oxford Architecture" /&gt;
+				
+				&lt;img src="http://farm4.staticflickr.com/3752/11764627933_8e03ec0a86_b.jpg" title="Radcliffe Camera" /&gt;
+				
+				&lt;img src="http://farm4.staticflickr.com/3816/11764337875_f14cb36ec6_b.jpg" title="Simply Messing About in Boats" /&gt;
+				
+				&lt;img src="http://farm4.staticflickr.com/3704/11764355505_b5f8b48e14_b.jpg" title="Christ Church" /&gt;
+				
+				&lt;img src="http://farm3.staticflickr.com/2852/11764640983_c0639d6570_b.jpg" title="Those Dreaming Spires" /&gt;
+				
+				
+			</description>
+			<link>http://prkr.me/pictures/2014/oxford/</link>
+			<guid>http://prkr.me/pictures/2014/oxford/</guid>
+			<pubDate>Sat, 04 Jan 2014 00:00:00 -0700</pubDate>
+		</item>
+		
+		<item>
 			<title>A New Year and a New Book Rating Scheme</title>
 			<description>
 				
@@ -195,22 +217,22 @@ Of course, the advice proffered below predominantly reflects my perception of ed
 				
 				&lt;div data-picture data-alt=&quot;Gran Torino Movie Poster&quot; data-title=&quot;&quot;&gt;
     &lt;div
-    data-src=&quot;/assets/photos/gtr-poster.jpeg&quot;
+    data-src=&quot;http://prkr.me/assets/photos/gtr-poster.jpeg&quot;
     &gt;&lt;/div&gt;
 
     &lt;div
-    data-src=&quot;/assets/photos/gtr-poster.jpeg&quot;
+    data-src=&quot;http://prkr.me/assets/photos/gtr-poster.jpeg&quot;
     data-media=&quot;(min-width: 400px)&quot;
     &gt;&lt;/div&gt;
 
     &lt;div
-    data-src=&quot;/assets/photos/gtr-poster.jpeg&quot;
+    data-src=&quot;http://prkr.me/assets/photos/gtr-poster.jpeg&quot;
     data-media=&quot;(min-width: 800px)&quot;
     &gt;&lt;/div&gt;
 
     &lt;!-- Fallback content for non-JS browsers. --&gt;
     &lt;noscript&gt;
-        &lt;img src=&quot;/assets/photos/gtr-poster.jpeg&quot; alt=&quot;Gran Torino Movie Poster&quot; title=&quot;&quot;&gt;
+        &lt;img src=&quot;http://prkr.me/assets/photos/gtr-poster.jpeg&quot; alt=&quot;Gran Torino Movie Poster&quot; title=&quot;&quot;&gt;
     &lt;/noscript&gt;
 &lt;/div&gt;
 

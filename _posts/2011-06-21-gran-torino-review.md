@@ -8,22 +8,22 @@ category: words
 
 <div data-picture data-alt="Gran Torino Movie Poster" data-title="">
 	<div
-	data-src="/assets/photos/gtr-poster.jpeg"
+	data-src="{{ site.url }}/assets/photos/gtr-poster.jpeg"
 	></div>
 
 	<div
-	data-src="/assets/photos/gtr-poster.jpeg"
+	data-src="{{ site.url }}/assets/photos/gtr-poster.jpeg"
 	data-media="(min-width: 400px)"
 	></div>
 
     <div
-    data-src="/assets/photos/gtr-poster.jpeg"
+    data-src="{{ site.url }}/assets/photos/gtr-poster.jpeg"
     data-media="(min-width: 800px)"
     ></div>
 
     <!-- Fallback content for non-JS browsers. -->
     <noscript>
-        <img src="/assets/photos/gtr-poster.jpeg" alt="Gran Torino Movie Poster" title="">
+        <img src="{{ site.url }}/assets/photos/gtr-poster.jpeg" alt="Gran Torino Movie Poster" title="">
     </noscript>
 </div>
 
