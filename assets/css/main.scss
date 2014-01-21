@@ -216,11 +216,19 @@ code {
 }
 
 header {
-	background-image: url(/assets/img/bg-1.jpg);
+	background-image: url(/assets/img/bg-1_s.jpg);
 	background-size: 100% auto;
 
 	padding-bottom: 20px;
 	margin-bottom: 20px;
+
+	@media (min-width: 800px) {
+		background-image: url(/assets/img/bg-1_m.jpg);
+	}
+
+	@media (min-width: 1280px) {
+		background-image: url(/assets/img/bg-1.jpg);
+	}
 }
 
 nav {
@@ -284,8 +292,18 @@ nav {
 // $index.html
 
 .home-html {
-	background: url(/assets/img/bg-1.jpg) no-repeat center center fixed;
+	background: url(/assets/img/bg-1_s.jpg) no-repeat center center fixed;
 	@include background-size-cover;
+
+	@media (min-width: 800px) {
+		background: url(/assets/img/bg-1_m.jpg) no-repeat center center fixed;
+		@include background-size-cover;
+	}
+
+	@media (min-width: 1280px) {
+		background: url(/assets/img/bg-1.jpg) no-repeat center center fixed;
+		@include background-size-cover;
+	}
 }
 
 .home-title {

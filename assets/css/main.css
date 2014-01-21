@@ -152,10 +152,16 @@ code {
       margin: -8px 0 0 0; } }
 
 header {
-  background-image: url(/assets/img/bg-1.jpg);
+  background-image: url(/assets/img/bg-1_s.jpg);
   background-size: 100% auto;
   padding-bottom: 20px;
   margin-bottom: 20px; }
+  @media (min-width: 800px) {
+    header {
+      background-image: url(/assets/img/bg-1_m.jpg); } }
+  @media (min-width: 1280px) {
+    header {
+      background-image: url(/assets/img/bg-1.jpg); } }
 
 nav {
   margin: 15px; }
@@ -198,12 +204,28 @@ nav {
     color: #323232; }
 
 .home-html {
-  background: url(/assets/img/bg-1.jpg) no-repeat center center fixed;
+  background: url(/assets/img/bg-1_s.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='path_relative_to_the_HTML_file', sizingMethod='scale')"; }
+  @media (min-width: 800px) {
+    .home-html {
+      background: url(/assets/img/bg-1_m.jpg) no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='path_relative_to_the_HTML_file', sizingMethod='scale')"; } }
+  @media (min-width: 1280px) {
+    .home-html {
+      background: url(/assets/img/bg-1.jpg) no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='path_relative_to_the_HTML_file', sizingMethod='scale')"; } }
 
 .home-title {
   text-align: left;
