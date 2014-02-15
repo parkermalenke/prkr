@@ -1,0 +1,41 @@
+---
+- !ruby/object:Jekyll::FlickrPhoto
+  title: Reading room
+  id: '12548036725'
+  url_t: http://farm8.staticflickr.com/7421/12548036725_ffe5e6fefb_t.jpg
+  url_m: http://farm8.staticflickr.com/7421/12548036725_ffe5e6fefb_m.jpg
+  url: http://farm8.staticflickr.com/7421/12548036725_ffe5e6fefb.jpg
+  url_c: http://farm8.staticflickr.com/7421/12548036725_ffe5e6fefb_c.jpg
+  url_b: http://farm8.staticflickr.com/7421/12548036725_ffe5e6fefb_b.jpg
+  url_h: http://farm8.staticflickr.com/7421/12548036725_4b1c800d2a_h.jpg
+  url_k: http://farm8.staticflickr.com/7421/12548036725_53476035bf_k.jpg
+- !ruby/object:Jekyll::FlickrPhoto
+  title: Gutenberg Bible
+  id: '12548209563'
+  url_t: http://farm8.staticflickr.com/7317/12548209563_1d3a331e57_t.jpg
+  url_m: http://farm8.staticflickr.com/7317/12548209563_1d3a331e57_m.jpg
+  url: http://farm8.staticflickr.com/7317/12548209563_1d3a331e57.jpg
+  url_c: http://farm8.staticflickr.com/7317/12548209563_1d3a331e57_c.jpg
+  url_b: http://farm8.staticflickr.com/7317/12548209563_1d3a331e57_b.jpg
+  url_h: http://farm8.staticflickr.com/7317/12548209563_c9842602a9_h.jpg
+  url_k: http://farm8.staticflickr.com/7317/12548209563_d8bf14ec09_k.jpg
+- !ruby/object:Jekyll::FlickrPhoto
+  title: A southern view
+  id: '12548241833'
+  url_t: http://farm8.staticflickr.com/7366/12548241833_9cf612ea31_t.jpg
+  url_m: http://farm8.staticflickr.com/7366/12548241833_9cf612ea31_m.jpg
+  url: http://farm8.staticflickr.com/7366/12548241833_9cf612ea31.jpg
+  url_c: http://farm8.staticflickr.com/7366/12548241833_9cf612ea31_c.jpg
+  url_b: http://farm8.staticflickr.com/7366/12548241833_9cf612ea31_b.jpg
+  url_h: http://farm8.staticflickr.com/7366/12548241833_60a94fd26b_h.jpg
+  url_k: http://farm8.staticflickr.com/7366/12548241833_e3244cb0bd_k.jpg
+- !ruby/object:Jekyll::FlickrPhoto
+  title: Grids
+  id: '12548139185'
+  url_t: http://farm8.staticflickr.com/7372/12548139185_67ffe38f6a_t.jpg
+  url_m: http://farm8.staticflickr.com/7372/12548139185_67ffe38f6a_m.jpg
+  url: http://farm8.staticflickr.com/7372/12548139185_67ffe38f6a.jpg
+  url_c: http://farm8.staticflickr.com/7372/12548139185_67ffe38f6a_c.jpg
+  url_b: http://farm8.staticflickr.com/7372/12548139185_67ffe38f6a_b.jpg
+  url_h: http://farm8.staticflickr.com/7372/12548139185_cd0d991c36_h.jpg
+  url_k: http://farm8.staticflickr.com/7372/12548139185_61c7d91256_k.jpg
