@@ -8,6 +8,264 @@
 
 		
 		<item>
+			<title>Understanding the Javascript Event Loop</title>
+			<description>
+				
+				&lt;p&gt;I&amp;rsquo;ve been working on a &lt;a href=&quot;http://backbonejs.com&quot;&gt;backbone.js&lt;/a&gt; website lately and one of the major paradigms of this framework is that events play an important role in driving the application logic (for example, a model is changed and subsequently emits an event informing a view of the need to update). To this end, all the major Backbone classes integrate a custom event system that allows objects to listen for events on other objects or to trigger their own events.&lt;/p&gt;
+
+&lt;p&gt;Event programming isn&amp;rsquo;t always the most intuitive, so I wanted to do a little research on how exactly events work in Javascript before sinking a bunch of time into the paradigm. This post collects my findings about events and the Javascript event loop, mainly for my own reference, but perhaps others will find it useful as well. Since I&amp;rsquo;m definitely not an expert on javascript, some of this may be incorrect&amp;mdash;I will attempt to point out all areas where my understanding is fuzzy and provide code examples to illustrate my findings.&lt;/p&gt;
+
+&lt;h2&gt;Say Hello to the Stack&lt;/h2&gt;
+
+&lt;p&gt;Every time you call a function, the JS runtime (I believe this would be something like V8 in Chrome, Nitro in Safari, or whatever your browser implements) adds a &lt;em&gt;frame&lt;/em&gt; to the stack. This is a last-in-first-out (LIFO) structure that manages all the functions you call. A frame consists of the arguments for the function, all its local variables, and the code contained in its block.&lt;/p&gt;
+
+&lt;p&gt;When you invoke a script the runtime will retrieve the first frame and start executing it. When it gets to another function call it pauses execution of the current frame, adds a frame for the internal function to the stack, and starts executing the new frame (the last in is the first out). Consider the example code in the figure below. The stack starts off empty because no functions have been called. When &lt;code&gt;a&lt;/code&gt; is invoked a frame is created for it and added to the stack. In this example, the runtime will log a message to the console, and then come to the invocation of &lt;code&gt;b&lt;/code&gt;. At this point it pauses execution of &lt;code&gt;a&lt;/code&gt;, creates a frame for &lt;code&gt;b&lt;/code&gt;, adds it to the stack, and begins executing &lt;code&gt;b&lt;/code&gt;. Once &lt;code&gt;b&lt;/code&gt; has completed the runtime will clear that frame off the stack and return to the frame for &lt;code&gt;a&lt;/code&gt;. Once the last function completes the stack will be completely empty.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/photos/events-fig1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We can test this by adding some status messages to the code:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;starting...&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;added a to the stack&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;hello from b&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;removing a from the stack&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;added b to the stack&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;removing b from the stack&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;...done&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This produce the following output:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;[Log] starting... (index.html, line 9)
+[Log] added a to the stack (index.html, line 12)
+[Log] added b to the stack (index.html, line 18)
+[Log] hello from b (index.html, line 19)
+[Log] removing b from the stack (index.html, line 20)
+[Log] removing a from the stack (index.html, line 14)
+[Log] ...done (index.html, line 24)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;It&amp;rsquo;s possible to put too many functions/frames on the stack at once (the infamous &amp;lsquo;stack overflow&amp;rsquo;); this can happen if you call a recursive function on an input that&amp;rsquo;s too large and spawns too many sub calls. Sounds like ES6 &lt;a href=&quot;http://bbenvie.com/articles/2013-01-06/JavaScript-ES6-Has-Tail-Call-Optimization&quot;&gt;might be getting proper tail calls&lt;/a&gt; that would enable recursion over larger data sets.&lt;/p&gt;
+
+&lt;h2&gt;Events&lt;/h2&gt;
+
+&lt;p&gt;Alright, now back to the topic at hand. The first major point to realize is that there are two kinds of events in Javascript: &lt;em&gt;synchronous&lt;/em&gt; and &lt;em&gt;asynchronous&lt;/em&gt;. Most browser events are asynchronous, although a few are synchronous (such as &lt;a href=&quot;http://javascript.info/tutorial/events-and-timing-depth#synchronous-events&quot;&gt;DOM mutation and Nested Dom events&lt;/a&gt;). Any custom event handling, such as the events module built into backbone.js, another custom solution like &lt;a href=&quot;https://github.com/Wolfy87/EventEmitter&quot;&gt;EventEmitter&lt;/a&gt;, or jQuery&amp;rsquo;s &lt;a href=&quot;http://api.jquery.com/trigger/&quot;&gt;&lt;code&gt;.trigger()&lt;/code&gt;&lt;/a&gt; function, is going to be a synchronous implementation. So what&amp;rsquo;s the difference between these types of events?&lt;/p&gt;
+
+&lt;h3&gt;Synchronous Events&lt;/h3&gt;
+
+&lt;p&gt;Synchronous events are basically another way of invoking functions. Emission of these events essentially involves walking through a list of listener/handler functions and calling them. Consider the following sample implementation:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;EventManager&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_events&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{};&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// private storage for events and their listeners&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// if the event already exists, add the callback&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// otherwise create it with the given callback&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;nx&quot;&gt;_events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;nx&quot;&gt;_events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// invoke all the functions registered with an event&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;trigger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ev&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
+
+            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ev&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;nx&quot;&gt;ev&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;So synchronous event systems are really just a way to invoke one or more functions without knowing what those functions are at the point when the event is triggered. Calling &lt;code&gt;EventManager.trigger()&lt;/code&gt; pauses execution of whatever block you&amp;rsquo;re in and then sequentially invokes each of the listeners, adding and removing them from the stack until the list is exhausted, at which point control is returned to the context that emitted the event.&lt;/p&gt;
+
+&lt;p&gt;Consider this example:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Make a plan for a martian landing&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tellThePublic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;The martians are coming!&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;EventManager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;martians:landed&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tellThePublic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;react&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Head for the hills!&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;EventManager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;martians:landed&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;react&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Our plan is now in place&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+
+&lt;span class=&quot;c1&quot;&gt;// later...&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;EventManager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;trigger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;martians:landed&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Plan executed&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will output:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;[Log] Our plan is now in place
+[Log] The martians are coming!
+[Log] Head for the hills!
+[Log] Plan executed
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Notice that when the event was triggered, execution of the main script was paused while all the listeners were invoked (i.e. &amp;lsquo;Plan executed&amp;rsquo; wasn&amp;rsquo;t logged until the plan was actually carried out). In this case execution followed these steps:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Triggering the &lt;code&gt;&#39;martians:landed&#39;&lt;/code&gt; event pauses the main context&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tellThePublic()&lt;/code&gt; is added to the stack&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tellThePublic()&lt;/code&gt; is pulled off and executed&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;react()&lt;/code&gt; is added to the stack&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;react()&lt;/code&gt; is pulled off and executed&lt;/li&gt;
+&lt;li&gt;Main context resumes and &lt;code&gt;&#39;Plan executed&#39;&lt;/code&gt; is logged&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h3&gt;Asynchronous Events&lt;/h3&gt;
+
+&lt;p&gt;Instead of acting as a shortcut for adding frames to the stack, triggering async events adds messages to a queue. This behavior can&amp;rsquo;t be simulated with third party code (at least not that I&amp;rsquo;m aware of). Before discussing the queue, what kind of events are asynchronous? In my research it sounds like pretty much any event that comes from the browser, or in node any event that comes from a built in object. Clicks on elements, &lt;code&gt;window.setTimeout&lt;/code&gt; callbacks, mouseovers, keypresses, &lt;code&gt;XMLHttpResponse&lt;/code&gt;&amp;rsquo;s &lt;code&gt;readyState&lt;/code&gt;, etc. all behave in an asynchronous fashion.&lt;/p&gt;
+
+&lt;h4&gt;The Event Queue&lt;/h4&gt;
+
+&lt;p&gt;In addition to the stack, javascript runtimes include a structure known as the &lt;em&gt;queue&lt;/em&gt;. This is similar, except that it operates on a first-in-first-out (FIFO) basis. Whenever you register an event handler for an async event the runtime makes a note associating the provided function with the specified event. When an event is triggered the runtime looks through its list of handlers to see if any are associated with the current event. If so, it creates a &lt;em&gt;message&lt;/em&gt;, which references the handler function, and adds it to the queue. How are messages from the queue invoked? That&amp;rsquo;s the job of the event loop.&lt;/p&gt;
+
+&lt;h4&gt;The Event Loop&lt;/h4&gt;
+
+&lt;p&gt;Whenever the stack is empty, the runtime will ask the event loop for the next available message. If one exists, the event loop hands the associated function off to the runtime, which creates a corresponding frame, adds it to the stack, and executes it. Note the major difference versus synchronous events here: &lt;em&gt;Async event handlers are only ever invoked when the stack is empty.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Here is a figure illustrating the sequence of events (zing!) that happens when dealing with an async event:
+&lt;img src=&quot;/assets/photos/events-fig3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4&gt;Code Example&lt;/h4&gt;
+
+&lt;p&gt;Okay, let&amp;rsquo;s look at some code. Here&amp;rsquo;s an example that will hopefully make this clearer.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// create a handler function and add it to the click event&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;broadcast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;A click event was fired!&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;click&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;broadcast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you were to run this example and start clicking around you&amp;rsquo;d see the message would be logged to the console pretty much in real time as you click the document. Note that in this case the stack is basically empty this whole time. Now let&amp;rsquo;s try it with a stack that has more stuff to do.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// here&amp;#39;s a long running function&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;runFor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;ms&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){}&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// yes this is very hacky&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// now run this on the stack while we&amp;#39;re listening for the click event&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;broadcast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;A click event was fired!&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;click&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;broadcast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;runFor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now if you run this and start clicking on the document you&amp;rsquo;ll see that nothing is logged for 5 seconds and then all of a sudden a bunch of strings are logged. This is because the &lt;code&gt;runFor()&lt;/code&gt; function stays on the stack for 5 seconds. No messages from the event queue can be handled until the stack is clear. Once it finally clears all the messages are handled in sequential order. To check that messages are handled in a FIFO manner try the example with a different handler:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;broadcastCounter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Click number: &amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;_count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})();&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;click&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;broadcastCounter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You should see that the strings are printed in sequential order starting at 1 and going up.&lt;/p&gt;
+
+&lt;h4&gt;Remaining Questions&lt;/h4&gt;
+
+&lt;p&gt;At this point I feel like I have a pretty good handle on the event loop and asynchronous events. There are still a few points that aren&amp;rsquo;t entirely clear, but I have some guesses at what the answers are.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Is a call to &lt;code&gt;addEventListener()&lt;/code&gt; blocking?&lt;/em&gt;&lt;br/&gt;
+Functions that register async event handlers tend to return pretty much instantaneously. My guess is that in a strictly single threaded environment these functions will block the execution of a script until the runtime finishes recording the event and respective handler (step 2 in the diagram). I suppose it&amp;rsquo;s possible that some of the runtime maintenance tasks like this could also occur in a separate thread/process.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Is the message enqueueing process blocking?&lt;/em&gt;&lt;br/&gt;
+When an async event is triggered, does the runtime pause execution of the script while it looks up the relevant handler and adds it to the event queue? Again, I think this would work as a concurrent process, but it&amp;rsquo;s not required.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Do async processes ever occur simultaneously?&lt;/em&gt;&lt;br/&gt;
+The examples I had in mind were file reads in node.js or ajax requests in the client. I&amp;rsquo;m pretty sure ajax requests can occur concurrently, with something along the lines of:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;You create an XMLHttpRequest object, this blocks the main thread while telling the browser where to get the resource, what headers to use, etc.&lt;/li&gt;
+&lt;li&gt;Once the browser gets all this info, your function returns and execution continues.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;While your execution is continuing&lt;/em&gt; the browser has started a request in another thread. Your continuing execution might start additional ajax requests, which might also occur concurrently if the browser supports multiple http requests (I think they all do these days).&lt;/li&gt;
+&lt;li&gt;When that request returns an event is fired and your callback is added to the event queue.&lt;/li&gt;
+&lt;li&gt;The stack empties at some point and your callback is taken off the event loop and executed with the results of the request.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;I&amp;rsquo;m not sure about file reads in node.js. My guess is that it&amp;rsquo;s a similar process, except that a file read kicks off a separate thread at the OS level that then returns with the results of the file. In this manner you could have your js executing in one thread, a file read executing in another thread, and an ajax request executing in a third thread. So you can have concurrent execution with javascript, it&amp;rsquo;s just that only one script is ever executing at a time (the other threads are in the browser or at the OS level).&lt;/p&gt;
+
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;So that&amp;rsquo;s my brief foray into javascript events and the event loop. For functions that don&amp;rsquo;t take too long to execute it probably doesn&amp;rsquo;t matter if you&amp;rsquo;re using synchronous or asynchronous events, but if you have anything that could hold up the main thread for very long or are attaching an event handler that could take a while to clear it&amp;rsquo;s good to know the differences.&lt;/p&gt;
+
+&lt;h3&gt;Takeaways&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Asynchronous event handlers will be blocked by anything on the stack. Design your script to leave the stack empty whenever possible. Try moving things into messages in the queue instead.&lt;/li&gt;
+&lt;li&gt;Synchronous event handlers will block the main thread. This has the potential to lock up the browser if you run anything too intensive in them.&lt;/li&gt;
+&lt;li&gt;Javascript never executes in parallel, but it can kick off other threads/processes in the browser, OS, runtime, etc. (I think.)&lt;/li&gt;
+&lt;li&gt;Asynchronous events means that your script doesn&amp;rsquo;t have to block while it waits for these other threads to return. You can keep doing something else, and then once the other thread returns &lt;em&gt;and&lt;/em&gt; you&amp;rsquo;re not doing anything else you can handle the results of whatever process you started.&lt;/li&gt;
+&lt;li&gt;Custom events (backbone.js&amp;rsquo;s event model, jQuery&amp;rsquo;s &lt;code&gt;.trigger()&lt;/code&gt;, other third party custom event libraries) are not asynchronous. Instead they&amp;rsquo;re just a handy way of organizing your function invocations.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;Resources&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/EventLoop&quot;&gt;Concurrency model and Event Loop (MDN)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.carbonfive.com/2013/10/27/the-javascript-event-loop-explained/&quot;&gt;The JavaScript Event Loop: Explained&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://javascript.info/tutorial/events-and-timing-depth#asynchronous-events&quot;&gt;Events and Timing In-Depth&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.inkling.com/read/javascript-definitive-guide-david-flanagan-6th/chapter-19/handling-events-with-jquery&quot;&gt;Handling Events with jQuery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events&quot;&gt;Creating and Triggering Events (MDN)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://thomashunter.name/blog/the-javascript-event-loop-presentation/&quot;&gt;The Javascript Event Loop&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;Examples&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://codepen.io/anon/pen/Aeivq&quot;&gt;http://codepen.io/anon/pen/Aeivq&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://codepen.io/anon/pen/Hgziy&quot;&gt;http://codepen.io/anon/pen/Hgziy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+				
+			</description>
+			<link>http://prkr.me/words/2014/understanding-the-javascript-event-loop/</link>
+			<guid>http://prkr.me/words/2014/understanding-the-javascript-event-loop/</guid>
+			<pubDate>Sun, 23 Mar 2014 00:00:00 -0600</pubDate>
+		</item>
+		
+		<item>
 			<title>NYC</title>
 			<description>
 				

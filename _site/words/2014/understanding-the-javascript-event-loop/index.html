@@ -12,11 +12,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     
-    <title>Parker Malenke &rarr; Words</title>
+    <title>Parker Malenke &rarr; Words &rarr; Understanding the Javascript Event Loop</title>
     
 
     
-    <meta name="description" content="Words and pictures by Parker Malenke.">
+    <meta name="description" content="Working through the details of eventing in Javascript.">
     
 
     <link rel="stylesheet" href="/assets/css/normalize.css" />
@@ -52,12 +52,11 @@
 
 </header>
 
+<article>
+	<h1><a href="/words/2014/understanding-the-javascript-event-loop/">Understanding the Javascript Event Loop</a></h1>
+	
 
-	<article>
-		<h1><a href="/words/2014/understanding-the-javascript-event-loop/">Understanding the Javascript Event Loop</a></h1>
-		
-
-		<p>I&rsquo;ve been working on a <a href="http://backbonejs.com">backbone.js</a> website lately and one of the major paradigms of this framework is that events play an important role in driving the application logic (for example, a model is changed and subsequently emits an event informing a view of the need to update). To this end, all the major Backbone classes integrate a custom event system that allows objects to listen for events on other objects or to trigger their own events.</p>
+	<p>I&rsquo;ve been working on a <a href="http://backbonejs.com">backbone.js</a> website lately and one of the major paradigms of this framework is that events play an important role in driving the application logic (for example, a model is changed and subsequently emits an event informing a view of the need to update). To this end, all the major Backbone classes integrate a custom event system that allows objects to listen for events on other objects or to trigger their own events.</p>
 
 <p>Event programming isn&rsquo;t always the most intuitive, so I wanted to do a little research on how exactly events work in Javascript before sinking a bunch of time into the paradigm. This post collects my findings about events and the Javascript event loop, mainly for my own reference, but perhaps others will find it useful as well. Since I&rsquo;m definitely not an expert on javascript, some of this may be incorrect&mdash;I will attempt to point out all areas where my understanding is fuzzy and provide code examples to illustrate my findings.</p>
 
@@ -304,210 +303,12 @@ The examples I had in mind were file reads in node.js or ajax requests in the cl
 </ul>
 
 
-		<footer>
-			<time datetime="2014-03-d" pubdate>March 23, 2014</time>
-			<a href="/words/2014/understanding-the-javascript-event-loop/">Permalink</a>
-			<!-- <a href="#" class="suggest-edit">Suggest Edit</a> -->
-		</footer>
-	</article>
-
-	<article>
-		<h1><a href="/words/2014/new-year-new-book-rating-scheme/">A New Year and a New Book Rating Scheme</a></h1>
-		
-
-		<p>A few days ago I completed my goal of reading 35 books in 2013. I&rsquo;ve logged all the books I&rsquo;ve read for the past three years now (on <a href="http://goodreads.com/parkermalenke">Goodreads</a>), and it&rsquo;s kind of nice to look back at my recent literary history with ease. When I started rating books I didn&rsquo;t really have much of a plan for which books got which ratings. And I felt bad about giving books negative ratings, meaning I rarely gave out one or two stars. This paradigm doesn&rsquo;t have much expressive power, so starting with books I read in 2014 I&rsquo;m going to use a new rating scheme, specified here:</p>
-
-<p>&#9733;&#9733;&#9733;&#9733;&#9733;<br/>
-I absolutely loved the book&mdash;wouldn&rsquo;t change anything about it. There&rsquo;s a good chance I&rsquo;ll recommend these books to most people.</p>
-
-<p>&#9733;&#9733;&#9733;&#9733;<br/>
-A very good book. Stood out as an above average read that I enjoyed a lot. Still, some aspects of the book could use improving before reaching five star status.</p>
-
-<p>&#9733;&#9733;&#9733;<br/>
-Solidly average. No real negatives, but nothing truly outstanding either. Worth spending the time to read, but not necessarily worth re-reading.</p>
-
-<p>&#9733;&#9733;<br/>
-Below average. Some redeeming qualities, but my time would probably have been better spent elsewhere. Might still recommend to others if I felt they could enjoy it more.</p>
-
-<p>&#9733;<br/>
-A bad book. Didn&rsquo;t enjoy it, and didn&rsquo;t really find anything beneficial in it. Wouldn&rsquo;t recommend to others.</p>
-
-<p>My new rubric doesn&rsquo;t necessarily depend on the re-readability of a book. There are some fantastic books that I would never really plan on re-reading, either because the style of the book doesn&rsquo;t lend itself to that or just because of logistics. (How many times can one read <em>Infinite Jest</em>?)</p>
-
-		<footer>
-			<time datetime="2014-01-d" pubdate>January 02, 2014</time>
-			<a href="/words/2014/new-year-new-book-rating-scheme/">Permalink</a>
-			<!-- <a href="#" class="suggest-edit">Suggest Edit</a> -->
-		</footer>
-	</article>
-
-	<article>
-		<h1><a href="/words/2013/gene-patents-and-supreme-court/">Gene Patents and the Supreme Court</a></h1>
-		
-
-		<p>The US Supreme Court recently issued a ruling in the case <em>Association of Molecular Pathology v. Myriad Genetics</em> that addresses the validity of patents on genes, including those on portions of the human genome. This decision determined that naturally occurring genes are products of nature and therefore ineligible for patent protection, but confirmed that cDNA (complementary DNA) can be patented. It&rsquo;s fantastic to see the legal system recognize genes as the natural resources that they are, although the decision should have extended to cDNA as well.</p>
-
-<p>Typical genes in eukaryotic cells (those that make up complex multicellular organisms like humans) contain two types of sequences termed <em>introns</em> and <em>exons</em>. In the process of expressing a gene the intron sections are cut out and the exon components are spliced together producing the final sequence that gets turned into the end product, a protein. The cDNA version of a gene is the same as the version found in a chromosome, just with all the introns removed. So why can corporations patent cDNA and not the regular DNA found in end genome?</p>
-
-<p>The catch is that cDNA isn&rsquo;t technically a naturally occurring product. In the cell, the processed version of the full gene is actually made out of RNA, a molecule similar to DNA but different in a few key ways. Researchers often make cDNA from isolated RNA, however, using very simple and common procedures because the processed version of a gene is much easier to work with for many standard laboratory experiments.</p>
-
-<p>At the start of the genomics era it was difficult and expensive to decipher what the sequence for a given gene was, but in the years since the turn of the century the cost has decreased dramatically, even <a href="http://www.genome.gov/sequencingcosts/">outpacing Moore&rsquo;s law</a> over the past few years. The general idea behind patents is to provide an incentive for members of society to undertake an initial outlay in costs that will eventually produce something beneficial to society. What the Supreme Court is communicating with their ruling is that the production of cDNA for certain genes is an activity beneficial to society but which requires a monetary incentive for researchers to undertake that task. This is simply not the case however. The identification of a naturally occurring gene sequence is very easy and inexpensive with modern procedures, and producing a cDNA version of a gene is even easier. Our <a href="http://en.wikipedia.org/wiki/Copyright_Clause">constitution specifies</a> that patents are to be granted &ldquo;to promote the progress of science and useful arts&rdquo;, yet it&rsquo;s not clear why the court believes cDNA patents are necessary for accomplishing this goal.</p>
-
-<p>The ruling itself contains language that could potentially invalidate cDNA patents. In <a href="http://www.supremecourt.gov/opinions/12pdf/12-398_1b7d.pdf">their opinion</a> the justices &ldquo;hold that genes and the information they encode are not patent eligible…simply because they have been isolated from the surrounding genetic material.&rdquo; The process of producing cDNA is arguably a method of isolating the information encoded by a gene from surrounding genetic material.</p>
-
-<p>Ultimately, the invalidation of patents on DNA sequences found in the genome is more important than the lifting of intellectual property restrictions on cDNA. The ruling allows genetic screening of the genome (tests which can identify gene variants to help doctors make treatment decisions) without interference from patent holders like Myriad Genetics, who until now could charge licensing fees or prevent companies and researchers from conducting the tests at all. This is an important step forward for the sciences, and it&rsquo;s encouraging to see that this was a unanimous decision amongst the justices. cDNA patents could potentially prove troublesome to researchers investigating patented genes, but perhaps those restrictions will be removed in time as well.</p>
-
-		<footer>
-			<time datetime="2013-06-d" pubdate>June 25, 2013</time>
-			<a href="/words/2013/gene-patents-and-supreme-court/">Permalink</a>
-			<!-- <a href="#" class="suggest-edit">Suggest Edit</a> -->
-		</footer>
-	</article>
-
-	<article>
-		<h1><a href="/words/2011/how-to-teach-college-students/">How To Teach College Students</a></h1>
-		
-
-		<p>This guide contains my thoughts as a seasoned college student on what makes a teacher good or bad. Nearly forty instructors over three years of college level education have constructed this understanding of educators. Some taught me how to deal with bureaucracy, some taught me how to transcribe slide shows onto lined paper, some taught me a little, some taught me a lot. In my experience, a number of good or bad practices exist which combine to determine the overall quality of a teacher. Hopefully this manifesto of sorts will drive beneficial change in the typical college classroom experience.
-Of course, the advice proffered below predominantly reflects my perception of education and does not represent an exhaustive collection of student opinions. I do believe, however, that many students would benefit if teachers put these principles into broader practice. At least my ideas might provoke discussion among teachers and students about efficient transmittance of knowledge.</p>
-
-<h2>Good Ideas</h2>
-
-<h3>Transparency</h3>
-
-<p>Teachers must understand what we as students need to know and then clearly communicate it to us. This applies to the general course material in addition to individual homework assignments and exams. I find it frustrating, if not disrespectful, when teachers fail to clearly delineate what they expect of students. My best experiences with such clarity have come from math classes that were typically organized with a very manageable load of weekly homework, which applied concepts from well articulated lectures, and periodic exams that students entered possessing well-formed notions about the types of problems to expect. Here are the key points:</p>
-
-<ul>
-<li>When outside of class we should spend 90 per cent of our time applying concepts we already have a decent grasp of, preferably from prior teaching, and only 10 per cent on understanding the assignment.</li>
-<li>Some professors try to obfuscate their exam expectations by providing students with little to no information about what to expect. I understand the motivation behind this, but failing to produce either past exams or informative study guides only introduces ineffective ambiguity into the studying process. Students have to balance time between many classes, and with only a diffuse idea of what to expect on exams they will likely spend either too much or too little time preparing.</li>
-<li>Use a standard and understandable grading scale for the class. The fewer types of items that go into the final grade the better.</li>
-<li>Students should find all the relevant details for various course components in the syllabus.</li>
-</ul>
-
-
-<h3>Organization</h3>
-
-<p>Transparency goes cheek by jowl with organization. A minimal and consistent class structure helps significantly when establishing an accessibly organized (and hence transparent) class structure.</p>
-
-<ul>
-<li>Homework should come at regular, rational intervals; weekly rather than two periods after we finish each chapter.</li>
-<li>Keep notes and slides consolidated. No one likes printing five different documents just to understand one lecture (or the class structure).</li>
-<li>Slides, if used, should have a consistent organization. Think about those who prefer to take notes on blank paper when creating and presenting them.</li>
-<li>Again, we should spend 90 per cent of our effort on learning the material and 10 per cent on accessing it.</li>
-</ul>
-
-
-<h3>Typography</h3>
-
-<p>This is a little pet peeve of mine and perhaps less important to creating a good learning experience, but still influential. Good typography competes with good grammar when creating clear and professional communication. You can find several good resources for learning more about this essential subject online. (<a href="http://www.typographyforlawyers.com/?page_id=1300">Here</a>, <a href="http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-better-typography">here</a>, <a href="http://www.thedesigncubicle.com/2008/12/10-common-typography-mistakes/">here</a>, and <a href="http://www.sitepoint.com/principles-beautiful-typography/">here</a>).</p>
-
-<ul>
-<li>Learn how to choose a font (hint: <a href="http://comicsanscriminal.com/">not comic sans</a>) and use it consistently throughout slides and documents.</li>
-<li>Do not use colored, capital, bolded, or underlined words (or some horrible combination thereof) without very good reason.</li>
-<li>Do not use myriad different font sizes. Pick two or three and stick with them.</li>
-<li>The same goes for the number of different fonts.</li>
-<li>Learn to use <a href="http://www.dummies.com/how-to/content/using-em-dashes-and-en-dashes-properly.html">em dashes</a>.</li>
-</ul>
-
-
-<h2>Bad Ideas</h2>
-
-<h3>Independent Floundering</h3>
-
-<p>I believe every student should exhibit proficiency at independent learning. It forms an essential part of being a genuine individual. With that said, I am paying you through the nose to facilitate my learning. I expect you to teach me. All too often, however, a teacher’s attempt at encouraging students to learn a topic outside of class results in the pupil simply floundering around online, bouncing back and forth between Yahoo Answers and Wikipedia.</p>
-
-<ul>
-<li>Build a launch pad (with lectures or concise but sufficient instructions) that students can base their independent investigations on.</li>
-<li>Provide an accessible method of confirming results that students find (office hours or a scheduled time in lecture to discuss progress on the assignment before turning it in). Trial and error has never been an efficient learning method.</li>
-</ul>
-
-
-<h3>Entertaining</h3>
-
-<p>Do not set out to entertain us. College students know an infinitude of ways to keep themselves better entertained than attending class. Your attempts will simply muddle up the concepts and add to the effort students expend on extracting information from class. Focus on teaching your material in a clear, concise, and accessible manner. If some students find themselves enjoying class, so much the better.</p>
-
-<h3>Severity</h3>
-
-<p>A college education is rooted on the idea of a contract between the school (professors) and students. We have mutually agreed that the school will provide knowledge and the students will provide money. Besides the simple standards of professionalism and etiquette applicable in any social situation, this is the extent of any obligation students have to professors. Specifically, professors should not impose penalties on behavior they personally and individually disapprove of but which does not impede other students. For example, skipping class, unobtrusively texting, working on the crossword, completing homework from other classes, etc. Of course all these activities may be viewed negatively, but the professor still receives payment, the contract is upheld. Once such activities impinge on the ability of other students to receive instruction action may be undertaken. But setting strict, arcane rules at the outset serves more to create a degree of hostility between students and the teacher.</p>
-
-<h3>Repetition</h3>
-
-<p>Some students may need to hear a concept several times in several contexts before comprehending it. Some may simply need a brief reminder of it. Do not treat these two the same.</p>
-
-<ul>
-<li>Lectures should form the backbone of a class. Students who quickly grasp the material should be able to learn everything they need from class. Required, basic, information should not be scattered through various learning outlets. Doing so presents an unorganized and opaque challenge.</li>
-<li>Additional veins of teaching should come as optional layers added atop the lecture. Requiring students to complete repetitive reading quizzes, homework, lab reports, online lectures, and recitation quizzes may help some, but it more likely burdens others who would do better spending time on another class they have a harder time grasping.</li>
-</ul>
-
-
-<h3>Online Anything</h3>
-
-<p>Digitization of homework or quizzes has never aided students and only added a depressingly high administrative and logistical barrier between their brains and course material.</p>
-
-<ul>
-<li>It shackles students to the distraction machine known as a computer.</li>
-<li>I have yet to see an online homework system that works well in a modern web browser and conforms to standard usability practices. This creates an unnecessary technological hurdle that wastes time and effort.</li>
-</ul>
-
-
-		<footer>
-			<time datetime="2011-10-d" pubdate>October 03, 2011</time>
-			<a href="/words/2011/how-to-teach-college-students/">Permalink</a>
-			<!-- <a href="#" class="suggest-edit">Suggest Edit</a> -->
-		</footer>
-	</article>
-
-	<article>
-		<h1><a href="/words/2011/gran-torino-review/">Gran Torino Review</a></h1>
-		
-
-		<div data-picture data-alt="Gran Torino Movie Poster" data-title="">
-    <div
-    data-src="http://prkr.me/assets/photos/gtr-poster.jpeg"
-    ></div>
-
-    <div
-    data-src="http://prkr.me/assets/photos/gtr-poster.jpeg"
-    data-media="(min-width: 400px)"
-    ></div>
-
-    <div
-    data-src="http://prkr.me/assets/photos/gtr-poster.jpeg"
-    data-media="(min-width: 800px)"
-    ></div>
-
-    <!-- Fallback content for non-JS browsers. -->
-    <noscript>
-        <img src="http://prkr.me/assets/photos/gtr-poster.jpeg" alt="Gran Torino Movie Poster" title="">
-    </noscript>
-</div>
-
-
-<p>I nearly always have certain expectations when I go to see a movie. Rarely does the movie fit those preconceptions. Sometimes it falls short, sometimes it surpasses. Only once in a great while does a film deliver so far beyond my hopes as Gran Torino did.</p>
-
-<p>A very complex, but never confusing tale, Clint Eastwood’s performance contains meaningful conversation on manhood, family, race, neighbors, courage, conviction, life, and death. With excellent acting and a beautiful production quality, this film should be on everyone’s list.</p>
-
-		<footer>
-			<time datetime="2011-06-d" pubdate>June 21, 2011</time>
-			<a href="/words/2011/gran-torino-review/">Permalink</a>
-			<!-- <a href="#" class="suggest-edit">Suggest Edit</a> -->
-		</footer>
-	</article>
-
-
-<section class="pagination">
-
-
-		<span class="previous-pagination disabled-pagination">&larr; Previous</span>
-
-
-<span class="text-paginator">Page 1 of 2</span>
-
-
-	<a class="next-pagination" href="/words/page2">Next &rarr;</a>
-
-
-</section>
+	<footer>
+		<time datetime="2014-03-d" pubdate>March 23, 2014</time>
+		<a href="/words/2014/understanding-the-javascript-event-loop/">Permalink</a>
+		<!-- <a href="">Suggest Edit</a> -->
+	</footer>
+</article>
 
     <p class="page-footer">
     	An intermittent endeavor. <a href="/about/#contact">Say hi</a>. Subscribe? <a href="/feed.xml">Feed</a>. CC licensed, <a href="/about/#license">click here for info</a>.
