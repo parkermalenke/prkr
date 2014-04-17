@@ -8,7 +8,7 @@
 
 
 
-/*******************************************************************************
+/*******************************************************
  TABLE OF CONTENTS
  ******************************************************************************/
 
@@ -24,7 +24,7 @@
 
 
 
-/*******************************************************************************
+/********************************************************
  $General
  ******************************************************************************/
 
@@ -40,7 +40,7 @@ $body-fonts: Georgia, serif;
 
 
 
-/*******************************************************************************
+/********************************************************
  $Shared
  ******************************************************************************/
 
@@ -171,11 +171,19 @@ code {
 	}
 }
 
+h4 {
+	margin-bottom: 0;
+}
+
+h4 + p {
+	margin-top: 0;
+}
 
 
 
 
-/*******************************************************************************
+
+/***********************************************************
  $Specific pages
  ******************************************************************************/
 
@@ -694,5 +702,65 @@ article {
 	@media (min-width: 675px) {
 		width: 650px;
 		margin: 0 auto 100px;
+	}
+}
+
+
+
+
+// portfolio.html
+
+#portfolio {
+	margin: 0 15px 100px;
+
+	@media (min-width: 675px) {
+		width: 650px;
+		margin: 0 auto 100px;
+	}
+}
+
+.screenshot {
+	margin-bottom: 20px;
+}
+
+.screenshot + h3 {
+	margin-top: 80px;
+}
+
+.chrome {
+	height: 16px;
+	border: 1px solid #c8c8c8;
+	border-radius: 4px 4px 0 0;
+	background: linear-gradient(to bottom, #efefef, #d4d4d4);
+	display: table;
+	width: 100%;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	.title {
+		text-align: center;
+		display: table-cell;
+		vertical-align: middle;
+
+		font-family: "Lucida Grande", "Lucida Sans", sans-serif;
+		font-size: 10px;
+		color: rgb(121, 121, 121);
+	}
+}
+
+.content {
+	// max-height: 550px;
+	// overflow-y: scroll;
+	border-left: 1px solid #c8c8c8;
+	border-right: 1px solid #c8c8c8;
+	border-bottom: 1px solid #c8c8c8;
+	box-shadow: 0 8px 5px -5px #c8c8c8;
+
+	img {
+		width: 100%;
+		height: auto;
+		margin: 0;
+		padding: 0;
+		display: block;
 	}
 }
