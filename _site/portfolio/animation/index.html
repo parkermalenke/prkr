@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+      <!-- As recommended by the spec -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <!--
+      This tells IE to use it's latest rendering engine, or
+      to use Chrome frame if it's installed. Not valid. See
+      HTML5boilderplate documentation
+      -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>Parker Malenke &rarr; Portfolio</title>
+
+
+
+    <meta name="description" content="Words and pictures by Parker Malenke.">
+
+
+    <link rel="stylesheet" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/pygments.css" />
+
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/matchmedia.js"></script>
+    <script type="text/javascript" src="/assets/js/picturefill.js"></script>
+    <script type="text/javascript" src="/assets/js/main.js"></script>
+    <!-- <script type="text/javascript" src="/assets/js/scroll.js"></script> -->
+    <!-- <script type="text/javascript" src="http://fast.fonts.com/jsapi/30e20c27-32fe-47a8-b298-98f60ebf788d.js"></script> -->
+    <!-- Script for adding fonts.com webfonts -->
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/assets/js/html5shiv-printshiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+<header>
+
+	<h1 class="page-title"><a href="/">Parker Malenke</a></h1>
+	<nav>
+		<ul class="nav-ul">
+			<li><a href="/words">Words</a></li>
+			<li><a href="/pictures">Pictures</a></li>
+			<li><a href="/about">About</a></li>
+			<li><a href="/archives">Archives</a></li>
+		</ul>
+	</nav>
+
+</header>
+
+<section id="portfolio">
+	<h3><a href="/portfolio">&larr; Back to Portfolio</a></h3>
+
+	<h2>Animation &amp; Data Visualization</h2>
+	<p><a href="http://measuringusability.com">Measuring Usability</a> offers various onsite training courses and each year organizes the <a href="https://www.denverux.com">DenverUX Bootcamp</a> to help people in the User Experience industry understand and implement statistical user research methods in their research. In order to more effectively communicate one of the trickier concepts I created an animation using the D3.js data visualization library.</p>
+
+	<p>The <a href="https://en.wikipedia.org/wiki/Central_limit_theorem">central limit theorem</a> allows us to treat the average value of a sample as normally distributed, even when the variables that constitute the sample do not follow a normal distribution. (Recall that a <a href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a> is the same as the bell curve, with a few data points on the high end, a few on the low end, and most somewhere in between.)</p>
+
+	<p>For example, consider 500 task difficulty ratings as a sample (participants were asked to rate a task's difficulty on a 1 to 5 scale, with 1 being extremely difficult and 5 being extremely easy). On questions like this people tend to exhibit a positivity bias, with many more 4s and 5s and many fewer 1s and 2s than a normal distribution would predict. According to the central limit theorem, however, the <em>average</em> of all these ratings will be normally distributed.</p>
+
+	<p>My animation demonstrates a method of observing this effect experimentally. In the video below the field of numbers at the bottom represent ratings from 500 different participants. In order to test the theorem, you select a random subsample of 30 ratings, take the average, and plot it on the graph. This process is repeated 250 times, eventually revealing that the average of the large sample does indeed follow a normal distribution (a perfect normal distribution is drawn in blue at the end).</p>
+
+	<video controls preload width="100%" poster="/assets/videos/animation.png">
+		<source src="/assets/videos/animation.mp4" type="video/mp4" />
+		<source src="/assets/videos/animation.webm" type="video/webm"></source>
+	</video>
+
+	<p>I worked predominantly with the <a href="http://d3js.org">D3.js</a> visualization library for this project and used <a href="https://github.com/Wolfy87/EventEmitter">EventEmitter</a> to manage the sequential animations.</p>
+</section>
+
+    <p class="page-footer">
+    	An intermittent endeavor. <a href="/about/#contact">Say hi</a>. Subscribe? <a href="/feed.xml">Feed</a>. CC licensed, <a href="/about/#license">click here for info</a>.
+    </p>
+  </body>
+</html>

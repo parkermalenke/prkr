@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+      <!-- As recommended by the spec -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <!--
+      This tells IE to use it's latest rendering engine, or
+      to use Chrome frame if it's installed. Not valid. See
+      HTML5boilderplate documentation
+      -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>Parker Malenke &rarr; Portfolio</title>
+
+
+
+    <meta name="description" content="Words and pictures by Parker Malenke.">
+
+
+    <link rel="stylesheet" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/pygments.css" />
+
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/matchmedia.js"></script>
+    <script type="text/javascript" src="/assets/js/picturefill.js"></script>
+    <script type="text/javascript" src="/assets/js/main.js"></script>
+    <!-- <script type="text/javascript" src="/assets/js/scroll.js"></script> -->
+    <!-- <script type="text/javascript" src="http://fast.fonts.com/jsapi/30e20c27-32fe-47a8-b298-98f60ebf788d.js"></script> -->
+    <!-- Script for adding fonts.com webfonts -->
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/assets/js/html5shiv-printshiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+<header>
+
+	<h1 class="page-title"><a href="/">Parker Malenke</a></h1>
+	<nav>
+		<ul class="nav-ul">
+			<li><a href="/words">Words</a></li>
+			<li><a href="/pictures">Pictures</a></li>
+			<li><a href="/about">About</a></li>
+			<li><a href="/archives">Archives</a></li>
+		</ul>
+	</nav>
+
+</header>
+
+<section id="portfolio">
+	<h3><a href="/portfolio">&larr; Back to Portfolio</a></h3>
+
+	<h2>Metrics Collection &amp; Datastore</h2>
+
+	<p>A large software company recently approached <a href="http://measuringusability.com">Measuring Usability</a> for assistance with designing an internal web application for collecting, analyzing, and reporting usability metrics. The client has an extensive product line encompassing both native desktop and web applications and now wants to unify their usability metrics process, enhancing stakeholder access and lending impact to issues and opportunities discovered across all products. I have acted as the primary contact on the project, engaging in activities such as:</p>
+
+	<ul>
+		<li>Participating in discovery meetings, gathering expectations and refining product requirements</li>
+		<li>Communicating design concepts with wireframes</li>
+		<li>Designing and developing forms for capturing usability data</li>
+		<li>Working collaboratively and iterating based on feedback</li>
+		<li>Documenting and explaining details of statistical analysis methods for incorporation in the product</li>
+		<li>Writing contextual help content that will assist users who are new to user experience research techniques</li>
+		<li>And eventually producing webinar based training content</li>
+	</ul>
+
+	<p>Following are some example wireframes used to design concepts and user flows:</p>
+
+	<h3>Product Page</h3>
+	<p>Each product gets a summary dashboard that surfaces major items such as Customer Satisfaction, the <a href="https://en.wikipedia.org/wiki/System_Usability_Scale">System Usability Scale</a>, Community Engagement, and more. Drilling into each section reveals additional details, such as performance over time, performance at key subphases of the customer journey, and comparisons with a consumer software benchmark provided by Measuring Usability.</p>
+
+	<div class="screenshot">
+		<div class="chrome">
+			<span class="title">Product Page</span>
+		</div>
+		<div class="content">
+			<img src="/assets/portfolio/wf1.jpg" alt="">
+		</div>
+	</div>
+
+	<h3>Project Page</h3>
+	<p>A variety of individual usability projects will contribute data to the top-level product page. Opening a project detail view displays additional information about the project, such as task specifics, participant demographics for a usability study, or supplementary metrics.</p>
+
+	<p>Besides presenting further details on past projects, the project page can also guide users through the process of planning and executing new studies. This series of wireframes walks through the user flow of beginning with a blank usability study, filling in study and task details, collecting data, and concluding with sharing the results at the end.</p>
+
+	<p>Upon starting a new usability study the user is presented with a checklist of tasks that will help them plan, conduct, and share a project. Tools for completing each item appear as they are needed and tasks are checked off automatically as they are accomplished. For example, the page below is a blank usability study where the first step is to describe the study objectives. The system presents an input box to record this and then checks the item off when the user clicks &lsquo;Save&rsquo;.</p>
+
+	<div class="screenshot">
+		<div class="chrome">
+			<span class="title">Initial Usability Study Page</span>
+		</div>
+		<div class="content">
+			<img src="/assets/portfolio/wf2.jpg" alt="">
+		</div>
+	</div>
+
+	<p>As tasks are completed new tools appear which guide users through each successive step. For example, saving the study objectives marks that item off the list and brings up instructions and an input for uploading a test plan along with a table for entering the study&rsquo;s tasks. Uploading the plan then completes the associated item and removes the tool.</p>
+
+	<div class="screenshot">
+		<div class="chrome">
+			<span class="title">Uploading a Study Plan</span>
+		</div>
+		<div class="content">
+			<img src="/assets/portfolio/wf3.jpg" alt="">
+		</div>
+	</div>
+
+	<div class="screenshot">
+		<div class="chrome">
+			<span class="title">Entering Tasks</span>
+		</div>
+		<div class="content">
+			<img src="/assets/portfolio/wf4.jpg" alt="">
+		</div>
+	</div>
+
+	<p>Part of the project involved both designing and developing the forms for collecting usability data either during or after a moderated session. I built and delivered the HTML/CSS forms below for integration into the final product. (Twitter&rsquo;s Bootstrap framework was used for the rest of the project so I followed those established patterns here.)</p>
+
+	<div class="screenshot">
+		<div class="chrome">
+			<span class="title">Data Capture Forms</span>
+		</div>
+		<div class="content">
+			<img src="/assets/portfolio/forms.png" alt="">
+		</div>
+	</div>
+
+	<p>Once data has been collected and input into the system, tools appear prompting the user to summarize the findings of the study and upload any supporting documents such as video highlight reels, more detailed analysis, or any reports discussing the findings. Actionable discoveries can be recorded as &lsquo;Opportunities&rsquo; which makes them more visible and likely to be addressed. By using this application to plan studies and collect findings such information is now available to many other stakeholders in the organization, and data from many different studies can be pooled to provide an informative look at each product and product line.</p>
+
+	<div class="screenshot">
+		<div class="chrome">
+			<span class="title">Summarizing and Sharing Findings</span>
+		</div>
+		<div class="content">
+			<img src="/assets/portfolio/wf5.jpg" alt="">
+		</div>
+	</div>
+
+	<p>Below is an alternative Project Page concept which integrated the checklist items into the main body of the page.</p>
+
+	<div class="screenshot">
+		<div class="chrome">
+			<span class="title">New Homepage</span>
+		</div>
+		<div class="content">
+			<img src="/assets/portfolio/wf6.jpg" alt="">
+		</div>
+	</div>
+</section>
+
+    <p class="page-footer">
+    	An intermittent endeavor. <a href="/about/#contact">Say hi</a>. Subscribe? <a href="/feed.xml">Feed</a>. CC licensed, <a href="/about/#license">click here for info</a>.
+    </p>
+  </body>
+</html>

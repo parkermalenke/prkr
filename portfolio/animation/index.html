@@ -1,0 +1,24 @@
+---
+title: Portfolio
+layout: default
+---
+
+<section id="portfolio">
+	<h3><a href="/portfolio">&larr; Back to Portfolio</a></h3>
+
+	<h2>Animation &amp; Data Visualization</h2>
+	<p><a href="http://measuringusability.com">Measuring Usability</a> offers various onsite training courses and each year puts on the <a href="https://www.denverux.com">DenverUX Bootcamp</a> to help people in the User Experience industry understand and implement user research statistical method in their research. In order to more effectively communicate one of the trickier concepts I created an animation using the d3.js data visualization library.</p>
+
+	<p>The <a href="https://en.wikipedia.org/wiki/Central_limit_theorem">central limit theorem</a> allows us to treat the average value of a group of sample as normally distributed, even when the variables that consitute the sample themselves do not follow a normal distribution. (Recall that a <a href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a> is the same as the bell curve, with a few data points on the high end, a few on the low end, and most somewhere in between.)</p>
+
+	<p>For example, consider as a sample 500 task difficulty ratings (participants were asked to rate a task's difficulty on a 1 to 5 scale, with 1 being extremely difficult and 5 being extremely easy). On questions like this people tend to exhibit a positivity bias, with many more 4s and 5s and many fewer 1s and 2s than a normal distribution would predict. According to the central limit theorem, however, the <em>average</em> of all these ratings will be normally distributed.</p>
+
+	<p>My animation demonstrates a method of observing this effect experimentally. In the video below the field of numbers at the bottom represent ratings from 500 different participants. In order to test the theorem, you select a random subsample of 30 ratings, take the average, and plot it on the graph. This process is repeated 250 times, eventually revealing that the average of the large sample does indeed follow a normal distribution (a perfect normal distribution is drawn in blue at the end).</p>
+
+	<video controls preload width="100%" poster="/assets/videos/animation.png">
+		<source src="/assets/videos/animation.mp4" type="video/mp4" />
+		<source src="/assets/videos/animation.webm" type="video/webm"></source>
+	</video>
+
+	<p>I worked predominantly with the <a href="http://d3js.org">D3.js</a> visualization library for this project and used <a href="https://github.com/Wolfy87/EventEmitter">EventEmitter</a> to manage the sequential animations.</p>
+</section>
